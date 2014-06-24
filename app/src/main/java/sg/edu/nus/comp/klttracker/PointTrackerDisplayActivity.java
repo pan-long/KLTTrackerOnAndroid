@@ -1,7 +1,14 @@
 package sg.edu.nus.comp.klttracker;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import sg.edu.nus.comp.klttracker.boofcv.abst.feature.tracker.PointTrack;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by panlong on 24/6/14.
@@ -40,7 +47,7 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
 
 
         public PointProcessing( PointTracker<ImageUInt8> tracker ) {
-            super(ImageType.single(ImageUInt8.class));
+            super(boofcv.struct.image.ImageType.single(boofcv.struct.image.ImageUInt8.class));
             this.tracker = tracker;
         }
 
@@ -52,7 +59,7 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
         }
 
         @Override
-        protected void process(ImageUInt8 gray) {
+        protected void process(boofcv.struct.image.ImageUInt8 gray) {
             tracker.process(gray);
 
             // drop tracks which are no longer being used

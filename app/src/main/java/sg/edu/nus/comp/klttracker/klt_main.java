@@ -10,16 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+import sg.edu.nus.comp.klttracker.boofcv.android.BoofAndroidFiles;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import sg.edu.nus.comp.klttracker.boofcv.android.BoofAndroidFiles;
 
 
 public class klt_main extends Activity {
