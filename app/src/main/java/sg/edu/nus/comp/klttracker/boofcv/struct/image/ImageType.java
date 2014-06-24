@@ -18,9 +18,9 @@
 
 package sg.edu.nus.comp.klttracker.boofcv.struct.image;
 
-import java.lang.reflect.Array;
-
 import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+
+import java.lang.reflect.Array;
 
 /**
  * Specifies the type of image data structure.
@@ -74,7 +74,7 @@ public class ImageType<T extends ImageBase> {
 	public T createImage( int width , int height ) {
 		switch( family ) {
 			case SINGLE_BAND:
-				return (T) GeneralizedImageOps.createSingleBand(getImageClass(), width, height);
+				return (T)GeneralizedImageOps.createSingleBand(getImageClass(),width,height);
 
 			case INTERLEAVED:
 				return (T)GeneralizedImageOps.createInterleaved(getImageClass(), width, height, numBands);

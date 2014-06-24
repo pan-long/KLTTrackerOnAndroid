@@ -19,13 +19,11 @@
 package sg.edu.nus.comp.klttracker.boofcv.alg.enhance;
 
 import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt8;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt16;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.enhance.impl.ImplEnhanceFilter;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.BoofDefaults;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Weakly typed version of {@link EnhanceImageOps}.
