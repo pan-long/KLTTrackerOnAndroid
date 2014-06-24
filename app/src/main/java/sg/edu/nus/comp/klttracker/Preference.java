@@ -1,6 +1,6 @@
 package sg.edu.nus.comp.klttracker;
 
-import boofcv.struct.calib.IntrinsicParameters;
+import sg.edu.nus.comp.klttracker.boofcv.struct.calib.IntrinsicParameters;
 
 /**
  * @author Peter Abeles
