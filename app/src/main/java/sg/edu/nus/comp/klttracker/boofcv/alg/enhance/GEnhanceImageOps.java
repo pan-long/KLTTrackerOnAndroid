@@ -56,7 +56,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageSInt32) {
 			EnhanceImageOps.applyTransform((ImageSInt32)input,transform,minValue,(ImageSInt32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
 		}
 	}
 
@@ -77,7 +77,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageUInt16 ) {
 			EnhanceImageOps.equalizeLocal((ImageUInt16)input,radius,(ImageUInt16)output,histogram,transform);
 		} else {
-			throw new IllegalArgumentException("Unsupported image type "+((Object) input).getClass().getSimpleName());
+			throw new IllegalArgumentException("Unsupported image type "+input.getClass().getSimpleName());
 		}
 	}
 
@@ -93,7 +93,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageFloat32) {
 			EnhanceImageOps.sharpen4((ImageFloat32)input, (ImageFloat32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
 		}
 	}
 
@@ -109,7 +109,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageFloat32) {
 			EnhanceImageOps.sharpen8((ImageFloat32)input, (ImageFloat32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
 		}
 	}
 }
