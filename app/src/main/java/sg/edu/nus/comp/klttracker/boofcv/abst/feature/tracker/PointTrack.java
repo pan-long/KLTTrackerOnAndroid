@@ -22,56 +22,56 @@ import georegression.struct.point.Point2D_F64;
 
 /**
  * Current location of feature in a {@link PointTracker}.
- *
+ * 
  * @author Peter Abeles
  */
 public class PointTrack extends Point2D_F64 {
-    /**
-     * Unique ID associated with this feature
-     */
-    public long featureId;
+	/**
+	 * Unique ID associated with this feature
+	 */
+	public long featureId;
+	
+	/** User specified data */
+	public Object cookie;
 
-    /** User specified data */
-    public Object cookie;
+	/* Description of this feature that is used internally.  Don't mess with this */
+	private Object description;
 
-    /* Description of this feature that is used internally.  Don't mess with this */
-    private Object description;
+	public PointTrack(double x, double y, long featureId) {
+		super(x, y);
+		this.featureId = featureId;
+	}
 
-    public PointTrack(double x, double y, long featureId) {
-        super(x, y);
-        this.featureId = featureId;
-    }
+	public PointTrack() {
+	}
+	
+	public void set( PointTrack t ) {
+		featureId = t.featureId;
+		x = t.x;
+		y = t.y;
+		cookie = t.cookie;
+		description = t.description;
+	}
+	
+	public void reset() {
+		featureId = -1;
+		cookie = null;
+		description = null;
+	}
 
-    public PointTrack() {
-    }
+	public <T> T getCookie() {
+		return (T) cookie;
+	}
 
-    public void set( PointTrack t ) {
-        featureId = t.featureId;
-        x = t.x;
-        y = t.y;
-        cookie = t.cookie;
-        description = t.description;
-    }
+	public <T> T getDescription() {
+		return (T) description;
+	}
 
-    public void reset() {
-        featureId = -1;
-        cookie = null;
-        description = null;
-    }
+	public void setDescription( Object description ) {
+		this.description = description;
+	}
 
-    public <T> T getCookie() {
-        return (T) cookie;
-    }
-
-    public <T> T getDescription() {
-        return (T) description;
-    }
-
-    public void setDescription( Object description ) {
-        this.description = description;
-    }
-
-    public void setCookie(Object cookie) {
-        this.cookie = cookie;
-    }
+	public void setCookie(Object cookie) {
+		this.cookie = cookie;
+	}
 }

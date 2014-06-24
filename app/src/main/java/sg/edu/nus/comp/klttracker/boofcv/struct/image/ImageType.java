@@ -18,9 +18,9 @@
 
 package sg.edu.nus.comp.klttracker.boofcv.struct.image;
 
-import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
-
 import java.lang.reflect.Array;
+
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
 
 /**
  * Specifies the type of image data structure.

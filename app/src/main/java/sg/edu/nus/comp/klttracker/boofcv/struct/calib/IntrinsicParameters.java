@@ -52,147 +52,147 @@ import java.io.Serializable;
 // todo move distortion parameters into its own class?
 public class IntrinsicParameters implements Serializable {
 
-    // serialization version
-    public static final long serialVersionUID = 1L;
+	// serialization version
+	public static final long serialVersionUID = 1L;
 
-    /** image shape (units: pixels) */
-    public int width,height;
+	/** image shape (units: pixels) */
+	public int width,height;
 
-    /** When calibrated was the y-axis flipped: y = (height - y - 1) */
-    public boolean flipY;
+	/** When calibrated was the y-axis flipped: y = (height - y - 1) */
+	public boolean flipY;
 
-    /** focal length along x and y axis (units: pixels) */
-    public double fx,fy;
-    /** skew parameter, typically 0 (units: pixels)*/
-    public double skew;
-    /** image center (units: pixels) */
-    public double cx,cy;
+	/** focal length along x and y axis (units: pixels) */
+	public double fx,fy;
+	/** skew parameter, typically 0 (units: pixels)*/
+	public double skew;
+	/** image center (units: pixels) */
+	public double cx,cy;
 
-    /** radial distortion parameters */
-    public double radial[];
+	/** radial distortion parameters */
+	public double radial[];
 
-    public IntrinsicParameters() {
-    }
+	public IntrinsicParameters() {
+	}
 
-    public IntrinsicParameters(double fx, double fy,
-                               double skew,
-                               double cx, double cy,
-                               int width, int height,
-                               boolean flipY, double[] radial) {
-        this.fx = fx;
-        this.fy = fy;
-        this.skew = skew;
-        this.cx = cx;
-        this.cy = cy;
-        this.width = width;
-        this.height = height;
-        this.flipY = flipY;
-        this.radial = radial;
-    }
+	public IntrinsicParameters(double fx, double fy,
+							   double skew,
+							   double cx, double cy,
+							   int width, int height,
+							   boolean flipY, double[] radial) {
+		this.fx = fx;
+		this.fy = fy;
+		this.skew = skew;
+		this.cx = cx;
+		this.cy = cy;
+		this.width = width;
+		this.height = height;
+		this.flipY = flipY;
+		this.radial = radial;
+	}
 
-    public IntrinsicParameters( IntrinsicParameters param ) {
-        set(param);
-    }
+	public IntrinsicParameters( IntrinsicParameters param ) {
+		set(param);
+	}
 
-    public void set( IntrinsicParameters param ) {
-        this.fx = param.fx;
-        this.fy = param.fy;
-        this.skew = param.skew;
-        this.cx = param.cx;
-        this.cy = param.cy;
-        this.width = param.width;
-        this.height = param.height;
-        this.flipY = param.flipY;
-        this.radial = param.radial;
+	public void set( IntrinsicParameters param ) {
+		this.fx = param.fx;
+		this.fy = param.fy;
+		this.skew = param.skew;
+		this.cx = param.cx;
+		this.cy = param.cy;
+		this.width = param.width;
+		this.height = param.height;
+		this.flipY = param.flipY;
+		this.radial = param.radial;
 
-        if( param.radial != null )
-            radial = param.radial.clone();
-    }
+		if( param.radial != null )
+			radial = param.radial.clone();
+	}
 
-    public double getCx() {
-        return cx;
-    }
+	public double getCx() {
+		return cx;
+	}
 
-    public void setCx(double cx) {
-        this.cx = cx;
-    }
+	public void setCx(double cx) {
+		this.cx = cx;
+	}
 
-    public double getCy() {
-        return cy;
-    }
+	public double getCy() {
+		return cy;
+	}
 
-    public void setCy(double cy) {
-        this.cy = cy;
-    }
+	public void setCy(double cy) {
+		this.cy = cy;
+	}
 
-    public double getFx() {
-        return fx;
-    }
+	public double getFx() {
+		return fx;
+	}
 
-    public void setFx(double fx) {
-        this.fx = fx;
-    }
+	public void setFx(double fx) {
+		this.fx = fx;
+	}
 
-    public double getFy() {
-        return fy;
-    }
+	public double getFy() {
+		return fy;
+	}
 
-    public void setFy(double fy) {
-        this.fy = fy;
-    }
+	public void setFy(double fy) {
+		this.fy = fy;
+	}
 
-    public double[] getRadial() {
-        return radial;
-    }
+	public double[] getRadial() {
+		return radial;
+	}
 
-    public void setRadial(double[] radial) {
-        this.radial = radial;
-    }
+	public void setRadial(double[] radial) {
+		this.radial = radial;
+	}
 
-    public double getSkew() {
-        return skew;
-    }
+	public double getSkew() {
+		return skew;
+	}
 
-    public void setSkew(double skew) {
-        this.skew = skew;
-    }
+	public void setSkew(double skew) {
+		this.skew = skew;
+	}
 
-    public int getWidth() {
-        return width;
-    }
+	public int getWidth() {
+		return width;
+	}
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+	public void setWidth(int width) {
+		this.width = width;
+	}
 
-    public int getHeight() {
-        return height;
-    }
+	public int getHeight() {
+		return height;
+	}
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+	public void setHeight(int height) {
+		this.height = height;
+	}
 
-    public boolean isFlipY() {
-        return flipY;
-    }
+	public boolean isFlipY() {
+		return flipY;
+	}
 
-    public void setFlipY(boolean flipY) {
-        this.flipY = flipY;
-    }
+	public void setFlipY(boolean flipY) {
+		this.flipY = flipY;
+	}
 
-    public void print() {
-        System.out.println("Shape "+width+" "+height+" flipY = "+ flipY);
-        System.out.printf("center %7.2f %7.2f\n", cx, cy);
-        System.out.println("fx = " + fx);
-        System.out.println("fy = "+fy);
-        System.out.println("skew = "+skew);
-        if( radial != null ) {
-            for( int i = 0; i < radial.length; i++ ) {
-                System.out.printf("radial[%d] = %6.2e\n",i,radial[i]);
-            }
-        } else {
-            System.out.println("No radial");
-        }
-    }
+	public void print() {
+		System.out.println("Shape "+width+" "+height+" flipY = "+ flipY);
+		System.out.printf("center %7.2f %7.2f\n", cx, cy);
+		System.out.println("fx = " + fx);
+		System.out.println("fy = "+fy);
+		System.out.println("skew = "+skew);
+		if( radial != null ) {
+			for( int i = 0; i < radial.length; i++ ) {
+				System.out.printf("radial[%d] = %6.2e\n",i,radial[i]);
+			}
+		} else {
+			System.out.println("No radial");
+		}
+	}
 }
