@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.alg;
+package sg.edu.nus.comp.klttracker.boofcv.alg;
 
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.struct.image.ImageBase;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.ImagePyramid;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageBase;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.ImagePyramid;
 
 /**
  * @author Peter Abeles

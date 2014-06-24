@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.derivative;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative;
 
-import boofcv.abst.filter.derivative.AnyImageDerivative;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.core.image.ImageGenerator;
-import boofcv.core.image.border.*;
-import boofcv.core.image.inst.FactoryImageGenerator;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.derivative.AnyImageDerivative;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.ImageGenerator;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.*;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.inst.FactoryImageGenerator;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 
 /**

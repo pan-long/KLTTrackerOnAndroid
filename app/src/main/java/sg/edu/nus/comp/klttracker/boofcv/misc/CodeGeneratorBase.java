@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.misc;
+package sg.edu.nus.comp.klttracker.boofcv.misc;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

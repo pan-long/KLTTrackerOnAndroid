@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.factory.transform.wavelet;
+package sg.edu.nus.comp.klttracker.boofcv.factory.transform.wavelet;
 
-import boofcv.alg.transform.wavelet.UtilWavelet;
-import boofcv.core.image.border.BorderIndex1D;
-import boofcv.core.image.border.BorderIndex1D_Reflect;
-import boofcv.core.image.border.BorderIndex1D_Wrap;
-import boofcv.core.image.border.BorderType;
-import boofcv.struct.wavelet.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet.UtilWavelet;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D_Reflect;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D_Wrap;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderType;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.*;
 import org.ejml.data.DenseMatrix64F;
 import org.ejml.factory.LinearSolverFactory;
 import org.ejml.interfaces.linsol.LinearSolver;

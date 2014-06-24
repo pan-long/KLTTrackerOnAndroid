@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.misc;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Generalized version of {@link PixelMath}.  Type checking is performed at runtime instead of at compile type.

@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel;
 
 
-import boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
 
 
 /**

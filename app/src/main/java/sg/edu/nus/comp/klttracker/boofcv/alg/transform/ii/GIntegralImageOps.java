@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.ii;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 
 /**

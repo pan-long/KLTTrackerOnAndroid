@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.fft;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.fft;
 
-import boofcv.abst.transform.fft.DiscreteFourierTransform;
-import boofcv.abst.transform.fft.GeneralFft_to_DiscreteFourierTransform_F32;
-import boofcv.abst.transform.fft.GeneralFft_to_DiscreteFourierTransform_F64;
-import boofcv.alg.InputSanityCheck;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.abst.transform.fft.DiscreteFourierTransform;
+import sg.edu.nus.comp.klttracker.boofcv.abst.transform.fft.GeneralFft_to_DiscreteFourierTransform_F32;
+import sg.edu.nus.comp.klttracker.boofcv.abst.transform.fft.GeneralFft_to_DiscreteFourierTransform_F64;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Various functions related to {@link DiscreteFourierTransform}.

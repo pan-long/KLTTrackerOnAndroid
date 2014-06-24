@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.core.image.border;
+package sg.edu.nus.comp.klttracker.boofcv.core.image.border;
 
-import boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
 
 /**
  * Child of {@link ImageBorder} for {@link ImageInteger}.

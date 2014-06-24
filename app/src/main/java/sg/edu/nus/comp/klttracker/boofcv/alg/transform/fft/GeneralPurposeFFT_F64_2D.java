@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.fft;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.fft;
 
 /**
  * Computes 2D Discrete Fourier Transform (DFT) of complex and real, double

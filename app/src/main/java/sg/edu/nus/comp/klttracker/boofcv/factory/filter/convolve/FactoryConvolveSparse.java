@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.convolve;
 
-import boofcv.abst.filter.convolve.ImageConvolveSparse;
-import boofcv.alg.filter.convolve.ConvolveWithBorderSparse;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.core.image.border.ImageBorder_F32;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.convolve.Kernel2D;
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageInteger;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.ImageConvolveSparse;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveWithBorderSparse;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * Factory for creating sparse convolutions.

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
 /**
  * The distribution is a cropped Gaussian distribution with mean at 0.  Note

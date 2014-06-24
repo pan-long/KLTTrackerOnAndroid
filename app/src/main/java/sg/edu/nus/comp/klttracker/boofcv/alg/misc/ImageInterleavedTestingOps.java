@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.misc;
 
-import boofcv.struct.image.InterleavedI8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.InterleavedI8;
 
 import java.util.Random;
 

@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.distort;
+package sg.edu.nus.comp.klttracker.boofcv.alg.distort;
 
-import boofcv.struct.distort.PixelTransform_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.distort.PixelTransform_F32;
 import georegression.struct.homo.Homography2D_F32;
 import georegression.struct.homo.Homography2D_F64;
 import georegression.struct.point.Point2D_F32;

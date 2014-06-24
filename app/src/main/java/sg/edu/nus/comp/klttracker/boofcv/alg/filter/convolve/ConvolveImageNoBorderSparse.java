@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve;
 
-import boofcv.alg.filter.convolve.noborder.ConvolveImageStandardSparse;
-import boofcv.struct.convolve.Kernel1D_F32;
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.noborder.ConvolveImageStandardSparse;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * Performs a convolution around a single pixel only.  The whole kernel must be contained inside the image, border

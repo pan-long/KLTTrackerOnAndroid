@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.core.image.inst;
+package sg.edu.nus.comp.klttracker.boofcv.core.image.inst;
 
-import boofcv.core.image.ImageGenerator;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.ImageGenerator;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;

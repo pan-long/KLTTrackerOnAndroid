@@ -15,12 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package boofcv.alg.filter.convolve.noborder;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.noborder;
 
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageInt16;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * <p>

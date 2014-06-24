@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.alg.enhance;
+package sg.edu.nus.comp.klttracker.boofcv.alg.enhance;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.enhance.impl.ImplEnhanceFilter;
-import boofcv.alg.enhance.impl.ImplEnhanceHistogram;
-import boofcv.alg.misc.ImageStatistics;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.enhance.impl.ImplEnhanceFilter;
+import sg.edu.nus.comp.klttracker.boofcv.alg.enhance.impl.ImplEnhanceHistogram;
+import sg.edu.nus.comp.klttracker.boofcv.alg.misc.ImageStatistics;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * <p>

@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.alg.enhance.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.enhance.impl;
 
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageInteger;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * <p>

@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate;
 
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * Performs interpolation across a whole rectangular region inside the image.  This can be significantly faster than

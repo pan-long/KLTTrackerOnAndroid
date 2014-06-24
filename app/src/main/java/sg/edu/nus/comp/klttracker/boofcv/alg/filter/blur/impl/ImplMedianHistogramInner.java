@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.blur.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur.impl;
 
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * <p>

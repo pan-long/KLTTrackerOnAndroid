@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.blur.BlurImageOps;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur.BlurImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * <p>

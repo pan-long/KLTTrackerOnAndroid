@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.blur;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.blur;
 
-import boofcv.abst.filter.blur.BlurStorageFilter;
-import boofcv.abst.filter.blur.MedianImageFilter;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.blur.BlurStorageFilter;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.blur.MedianImageFilter;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * Factory for creating different blur image filters.

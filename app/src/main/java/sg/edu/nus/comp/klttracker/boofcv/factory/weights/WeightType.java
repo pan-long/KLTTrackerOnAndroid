@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.factory.weights;
+package sg.edu.nus.comp.klttracker.boofcv.factory.weights;
 
 /**
  * Types of distributions which are available for use as weights

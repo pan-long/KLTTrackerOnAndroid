@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel;
 
-import boofcv.alg.filter.kernel.KernelMath;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.struct.convolve.*;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.KernelMath;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 import org.ddogleg.stats.UtilGaussian;
 
 

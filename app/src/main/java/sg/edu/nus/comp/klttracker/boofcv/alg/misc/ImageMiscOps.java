@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package boofcv.alg.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.misc;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 import java.util.Random;
 

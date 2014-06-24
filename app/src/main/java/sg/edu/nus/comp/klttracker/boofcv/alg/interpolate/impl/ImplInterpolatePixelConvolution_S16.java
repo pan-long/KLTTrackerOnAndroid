@@ -15,12 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package boofcv.alg.interpolate.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.impl;
 
-import boofcv.alg.interpolate.InterpolatePixelS;
-import boofcv.struct.convolve.KernelContinuous1D_F32;
-import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageType;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolatePixelS;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.KernelContinuous1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageType;
 
 /**
  * <p>

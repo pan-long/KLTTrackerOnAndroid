@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.core.image;
+package sg.edu.nus.comp.klttracker.boofcv.core.image;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.core.image.impl.ImplConvertImage;
-import boofcv.struct.image.*;
-import boofcv.testing.BoofTesting;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.impl.ImplConvertImage;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.testing.BoofTesting;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

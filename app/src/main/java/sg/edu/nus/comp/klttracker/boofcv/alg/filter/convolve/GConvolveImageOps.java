@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve;
 
-import boofcv.core.image.border.ImageBorder;
-import boofcv.core.image.border.ImageBorder_F32;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.convolve.*;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Image type agnostic convolution functions

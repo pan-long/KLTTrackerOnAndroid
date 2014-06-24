@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.core.image.border;
+package sg.edu.nus.comp.klttracker.boofcv.core.image.border;
 
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * A wrapper around a normal image that returns a numeric value if a pixel is requested that is outside of the image

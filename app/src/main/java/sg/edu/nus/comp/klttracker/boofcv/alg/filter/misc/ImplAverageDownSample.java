@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package boofcv.alg.filter.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.misc;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * <p> * Overlays a rectangular grid on top of the src image and computes the average value within each cell

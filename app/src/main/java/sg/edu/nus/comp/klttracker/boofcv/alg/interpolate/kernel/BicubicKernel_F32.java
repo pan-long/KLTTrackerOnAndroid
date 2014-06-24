@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.kernel;
 
-import boofcv.struct.convolve.KernelContinuous1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.KernelContinuous1D_F32;
 
 /**
  * <p>

@@ -16,16 +16,16 @@
  * limitations under the License.
  */
 
-package boofcv.factory.interpolate;
+package sg.edu.nus.comp.klttracker.boofcv.factory.interpolate;
 
-import boofcv.abst.filter.interpolate.InterpolatePixel_S_to_MB_MultiSpectral;
-import boofcv.alg.interpolate.InterpolatePixelMB;
-import boofcv.alg.interpolate.InterpolatePixelS;
-import boofcv.alg.interpolate.InterpolateRectangle;
-import boofcv.alg.interpolate.TypeInterpolate;
-import boofcv.alg.interpolate.impl.*;
-import boofcv.alg.interpolate.kernel.BicubicKernel_F32;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.interpolate.InterpolatePixel_S_to_MB_MultiSpectral;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolatePixelMB;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolatePixelS;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolateRectangle;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.TypeInterpolate;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.impl.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.kernel.BicubicKernel_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Simplified interface for creating interpolation classes.

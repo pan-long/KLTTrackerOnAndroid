@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * Simple unoptimized implementations of binary operations.

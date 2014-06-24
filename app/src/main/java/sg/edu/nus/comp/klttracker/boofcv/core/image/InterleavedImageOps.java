@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.core.image;
+package sg.edu.nus.comp.klttracker.boofcv.core.image;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.InterleavedF32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.InterleavedF32;
 
 /**
  * Functions related to interleaved images.

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.core.image.border;
+package sg.edu.nus.comp.klttracker.boofcv.core.image.border;
 
 
 /**

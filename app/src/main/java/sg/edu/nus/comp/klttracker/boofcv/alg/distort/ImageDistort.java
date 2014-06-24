@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.distort;
+package sg.edu.nus.comp.klttracker.boofcv.alg.distort;
 
-import boofcv.struct.distort.PixelTransform_F32;
-import boofcv.struct.image.ImageBase;
+import sg.edu.nus.comp.klttracker.boofcv.struct.distort.PixelTransform_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageBase;
 
 
 /**

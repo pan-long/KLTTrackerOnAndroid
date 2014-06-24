@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary;
 
 import georegression.struct.point.Point2D_I32;
 

@@ -14,17 +14,17 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */package boofcv.alg.filter.convolve.border;
+ */package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.border;
 
-import boofcv.core.image.border.ImageBorder_F32;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.convolve.Kernel1D_F32;
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageInt16;
-import boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
 
 /**
  * <p>

@@ -16,15 +16,15 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.wavelet;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet;
 
-import boofcv.core.image.border.BorderIndex1D;
-import boofcv.core.image.border.BorderIndex1D_Reflect;
-import boofcv.core.image.border.BorderIndex1D_Wrap;
-import boofcv.core.image.border.BorderType;
-import boofcv.struct.image.*;
-import boofcv.struct.wavelet.WlBorderCoef;
-import boofcv.struct.wavelet.WlCoef;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D_Reflect;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D_Wrap;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderType;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlBorderCoef;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlCoef;
 
 
 /**

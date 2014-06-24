@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package boofcv.alg.enhance.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.enhance.impl;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * <p>

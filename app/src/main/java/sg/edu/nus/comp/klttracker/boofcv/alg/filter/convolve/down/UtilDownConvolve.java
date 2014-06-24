@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.convolve.down;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.down;
 
 /**
  * @author Peter Abeles

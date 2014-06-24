@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate;
 
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

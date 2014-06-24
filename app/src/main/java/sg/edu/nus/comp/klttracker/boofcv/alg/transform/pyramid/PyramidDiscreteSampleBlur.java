@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid;
 
-import boofcv.abst.filter.convolve.GenericConvolveDown;
-import boofcv.core.image.border.BorderType;
-import boofcv.factory.filter.convolve.FactoryConvolveDown;
-import boofcv.struct.convolve.Kernel1D;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.PyramidDiscrete;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.GenericConvolveDown;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderType;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.convolve.FactoryConvolveDown;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.PyramidDiscrete;
 
 /**
  * <p>

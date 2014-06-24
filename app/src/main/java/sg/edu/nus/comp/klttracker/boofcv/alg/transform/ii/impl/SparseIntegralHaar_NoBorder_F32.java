@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.ii.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.impl;
 
-import boofcv.alg.transform.ii.SparseIntegralGradient_NoBorder;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.sparse.GradientValue_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.SparseIntegralGradient_NoBorder;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.sparse.GradientValue_F32;
 
 
 /**

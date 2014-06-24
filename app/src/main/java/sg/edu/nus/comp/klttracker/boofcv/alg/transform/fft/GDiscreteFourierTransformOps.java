@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.fft;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.fft;
 
-import boofcv.abst.transform.fft.DiscreteFourierTransform;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.abst.transform.fft.DiscreteFourierTransform;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 import static boofcv.alg.transform.fft.DiscreteFourierTransformOps.createTransformF32;
 import static boofcv.alg.transform.fft.DiscreteFourierTransformOps.createTransformF64;

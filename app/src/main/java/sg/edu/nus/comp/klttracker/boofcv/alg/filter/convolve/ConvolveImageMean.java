@@ -16,15 +16,15 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.convolve.noborder.ImplConvolveMean;
-import boofcv.alg.filter.convolve.normalized.ConvolveNormalized_JustBorder;
-import boofcv.factory.filter.kernel.FactoryKernel;
-import boofcv.struct.convolve.Kernel1D_F32;
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.noborder.ImplConvolveMean;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.normalized.ConvolveNormalized_JustBorder;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernel;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 
 /**

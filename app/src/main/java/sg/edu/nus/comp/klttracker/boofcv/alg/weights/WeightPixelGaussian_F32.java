@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
-import boofcv.factory.filter.kernel.FactoryKernelGaussian;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernelGaussian;
 
 /**
  * @author Peter Abeles

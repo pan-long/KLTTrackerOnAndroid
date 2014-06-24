@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.convolve;
 
-import boofcv.abst.filter.convolve.ConvolveInterface;
-import boofcv.abst.filter.convolve.GenericConvolve;
-import boofcv.alg.filter.convolve.ConvolveImageNoBorder;
-import boofcv.alg.filter.convolve.ConvolveNormalized;
-import boofcv.alg.filter.convolve.ConvolveWithBorder;
-import boofcv.core.image.border.BorderType;
-import boofcv.core.image.border.FactoryImageBorder;
-import boofcv.struct.convolve.Kernel1D;
-import boofcv.struct.convolve.Kernel2D;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.testing.BoofTesting;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.ConvolveInterface;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.GenericConvolve;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveImageNoBorder;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveNormalized;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveWithBorder;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderType;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.FactoryImageBorder;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.testing.BoofTesting;
 
 import java.lang.reflect.Method;
 

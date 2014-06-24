@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl;
 
-import boofcv.core.image.border.ImageBorderValue;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorderValue;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * Binary operations performed only along the image's border.

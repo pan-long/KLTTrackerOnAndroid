@@ -1,4 +1,4 @@
-package boofcv.android.gui;
+package sg.edu.nus.comp.klttracker.boofcv.android.gui;
 
 import android.graphics.Canvas;
 import android.hardware.Camera;

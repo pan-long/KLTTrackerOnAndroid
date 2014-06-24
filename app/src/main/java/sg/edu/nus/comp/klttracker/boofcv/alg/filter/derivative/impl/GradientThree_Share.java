@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.derivative.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative.impl;
 
-import boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
 
 
 /**

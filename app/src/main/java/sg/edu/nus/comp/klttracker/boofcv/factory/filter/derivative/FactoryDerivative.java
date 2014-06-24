@@ -16,17 +16,17 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.derivative;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.derivative;
 
-import boofcv.abst.filter.derivative.*;
-import boofcv.alg.filter.derivative.*;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.core.image.border.ImageBorder_F32;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.derivative.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative.*;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 import java.lang.reflect.Method;
 

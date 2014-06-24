@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid;
 
-import boofcv.abst.filter.convolve.ConvolveInterface;
-import boofcv.abst.filter.derivative.AnyImageDerivative;
-import boofcv.alg.filter.derivative.GImageDerivativeOps;
-import boofcv.core.image.ImageGenerator;
-import boofcv.core.image.border.BorderType;
-import boofcv.factory.filter.convolve.FactoryConvolve;
-import boofcv.factory.filter.kernel.FactoryKernelGaussian;
-import boofcv.struct.BoofDefaults;
-import boofcv.struct.convolve.Kernel1D;
-import boofcv.struct.gss.GaussianScaleSpace;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.ConvolveInterface;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.derivative.AnyImageDerivative;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative.GImageDerivativeOps;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.ImageGenerator;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderType;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.convolve.FactoryConvolve;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernelGaussian;
+import sg.edu.nus.comp.klttracker.boofcv.struct.BoofDefaults;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.gss.GaussianScaleSpace;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

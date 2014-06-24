@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel;
 
 
 /**

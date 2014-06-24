@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.misc;
+package sg.edu.nus.comp.klttracker.boofcv.misc;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 
 /**

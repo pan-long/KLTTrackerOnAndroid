@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.derivative;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
-import boofcv.alg.filter.derivative.impl.GradientPrewitt_Shared;
-import boofcv.core.image.border.ImageBorder_F32;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.convolve.Kernel2D;
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative.impl.GradientPrewitt_Shared;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorder_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * @author Peter Abeles

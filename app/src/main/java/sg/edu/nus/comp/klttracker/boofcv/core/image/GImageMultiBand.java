@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.core.image;
+package sg.edu.nus.comp.klttracker.boofcv.core.image;
 
-import boofcv.struct.image.ImageBase;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageBase;
 
 /**
  * Generalized interface for working with multi-band images

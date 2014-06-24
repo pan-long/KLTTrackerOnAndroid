@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.ii.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.impl;
 
-import boofcv.alg.transform.ii.IntegralKernel;
-import boofcv.struct.ImageRectangle;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.IntegralKernel;
+import sg.edu.nus.comp.klttracker.boofcv.struct.ImageRectangle;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 
 /**

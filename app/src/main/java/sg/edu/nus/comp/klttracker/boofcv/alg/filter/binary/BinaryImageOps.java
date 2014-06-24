@@ -16,15 +16,15 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.binary.impl.ImplBinaryBorderOps;
-import boofcv.alg.filter.binary.impl.ImplBinaryInnerOps;
-import boofcv.alg.misc.ImageMiscOps;
-import boofcv.struct.ConnectRule;
-import boofcv.struct.image.ImageSInt32;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl.ImplBinaryBorderOps;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl.ImplBinaryInnerOps;
+import sg.edu.nus.comp.klttracker.boofcv.alg.misc.ImageMiscOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.ConnectRule;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 import georegression.struct.point.Point2D_I32;
 import org.ddogleg.struct.FastQueue;
 

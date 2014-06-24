@@ -16,16 +16,16 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.convolve;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
-import boofcv.alg.filter.convolve.noborder.ImplConvolveBox;
-import boofcv.core.image.border.ImageBorderValue;
-import boofcv.factory.filter.kernel.FactoryKernel;
-import boofcv.struct.convolve.Kernel1D_F32;
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.noborder.ImplConvolveBox;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.ImageBorderValue;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernel;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Convolves a kernel which is composed entirely of 1's across an image.  This special kernel can be highly optimized

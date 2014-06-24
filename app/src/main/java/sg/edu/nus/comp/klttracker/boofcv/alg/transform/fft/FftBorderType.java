@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.fft;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.fft;
 
 /**
  * Used to specify which technique should be used when expanding an image's border for use with FFT

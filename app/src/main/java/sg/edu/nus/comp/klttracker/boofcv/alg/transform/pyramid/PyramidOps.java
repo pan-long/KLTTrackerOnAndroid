@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid;
 
-import boofcv.abst.filter.FilterImageInterface;
-import boofcv.abst.filter.derivative.ImageGradient;
-import boofcv.abst.filter.derivative.ImageHessian;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.ImagePyramid;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.FilterImageInterface;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.derivative.ImageGradient;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.derivative.ImageHessian;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.ImagePyramid;
 
 import java.lang.reflect.Array;
 

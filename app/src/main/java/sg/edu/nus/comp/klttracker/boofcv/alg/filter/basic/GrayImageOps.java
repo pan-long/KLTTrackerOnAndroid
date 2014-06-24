@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.basic;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.basic;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.basic.impl.ImplGrayImageOps;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.basic.impl.ImplGrayImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * Pixel-wise operations on gray-scale images.

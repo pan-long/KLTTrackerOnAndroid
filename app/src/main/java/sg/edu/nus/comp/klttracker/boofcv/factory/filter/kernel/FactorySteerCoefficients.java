@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel;
 
-import boofcv.alg.filter.kernel.SteerableCoefficients;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.SteerableCoefficients;
 
 import static java.lang.Math.*;
 

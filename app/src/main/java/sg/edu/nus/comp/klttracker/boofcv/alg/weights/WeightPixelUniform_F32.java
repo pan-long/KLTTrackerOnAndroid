@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
 /**
  * Weights from a uniform distribution within a symmetric square region.  All samples within the region return

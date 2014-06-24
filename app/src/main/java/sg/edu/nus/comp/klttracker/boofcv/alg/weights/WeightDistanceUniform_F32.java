@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
 /**
  * A uniform distribution from 0 to maxDistance, inclusive. If value is  greater than maxDistance it returns 0.

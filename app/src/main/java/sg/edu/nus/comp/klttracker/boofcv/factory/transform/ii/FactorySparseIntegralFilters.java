@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.factory.transform.ii;
+package sg.edu.nus.comp.klttracker.boofcv.factory.transform.ii;
 
-import boofcv.alg.transform.ii.impl.*;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt32;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.sparse.SparseScaleGradient;
-import boofcv.struct.sparse.SparseScaleSample_F64;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.impl.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.sparse.SparseScaleGradient;
+import sg.edu.nus.comp.klttracker.boofcv.struct.sparse.SparseScaleSample_F64;
 
 
 /**

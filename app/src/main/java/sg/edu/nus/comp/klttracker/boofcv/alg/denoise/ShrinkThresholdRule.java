@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.denoise;
+package sg.edu.nus.comp.klttracker.boofcv.alg.denoise;
 
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

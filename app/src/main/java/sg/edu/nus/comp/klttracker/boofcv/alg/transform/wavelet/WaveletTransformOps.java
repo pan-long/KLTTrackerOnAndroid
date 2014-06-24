@@ -16,18 +16,18 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.wavelet;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.misc.PixelMath;
-import boofcv.alg.transform.wavelet.impl.ImplWaveletTransformBorder;
-import boofcv.alg.transform.wavelet.impl.ImplWaveletTransformInner;
-import boofcv.alg.transform.wavelet.impl.ImplWaveletTransformNaive;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSInt32;
-import boofcv.struct.wavelet.WaveletDescription;
-import boofcv.struct.wavelet.WlCoef_F32;
-import boofcv.struct.wavelet.WlCoef_I32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.misc.PixelMath;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet.impl.ImplWaveletTransformBorder;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet.impl.ImplWaveletTransformInner;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.wavelet.impl.ImplWaveletTransformNaive;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WaveletDescription;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlCoef_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlCoef_I32;
 
 /**
  * <p>

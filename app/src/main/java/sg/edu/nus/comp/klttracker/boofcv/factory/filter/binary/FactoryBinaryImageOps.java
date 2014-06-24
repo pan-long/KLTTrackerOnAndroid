@@ -16,13 +16,13 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.binary;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.binary;
 
-import boofcv.abst.filter.FilterImageInterface;
-import boofcv.abst.filter.FilterImageReflection;
-import boofcv.alg.filter.binary.BinaryImageOps;
-import boofcv.struct.image.ImageSInt32;
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.FilterImageInterface;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.FilterImageReflection;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.BinaryImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * {@link FilterImageInterface} wrappers around functions inside of {@link BinaryImageOps}.

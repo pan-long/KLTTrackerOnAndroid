@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl;
 
 import org.ddogleg.struct.GrowQueue_I32;
 

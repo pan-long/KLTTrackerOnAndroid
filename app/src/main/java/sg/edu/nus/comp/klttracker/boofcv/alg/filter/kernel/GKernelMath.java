@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel;
 
-import boofcv.struct.convolve.*;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageInteger;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

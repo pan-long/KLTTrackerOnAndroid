@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.fft;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.fft;
 
 /**
  * <p>

@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.binary.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.binary.impl;
 
-import boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * <p>

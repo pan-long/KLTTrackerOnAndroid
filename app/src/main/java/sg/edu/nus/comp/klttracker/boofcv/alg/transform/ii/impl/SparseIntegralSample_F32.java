@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.ii.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.impl;
 
-import boofcv.alg.transform.ii.IntegralImageOps;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.sparse.SparseScaleSample_F64;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.ii.IntegralImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.sparse.SparseScaleSample_F64;
 
 /**
  * Samples a square region inside an integral image

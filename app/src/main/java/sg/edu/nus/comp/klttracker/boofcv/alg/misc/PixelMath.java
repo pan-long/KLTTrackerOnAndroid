@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.misc;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * Functions which perform basic arithmetic (e.g. addition, subtraction, multiplication, or division) on a pixel by pixel basis.

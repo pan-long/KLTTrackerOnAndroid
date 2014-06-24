@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.misc;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.misc;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 
 /**
  * <p>Implementation of {@link AverageDownSampleOps} specialized for square regions of width N.</p>

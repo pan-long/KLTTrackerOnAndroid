@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.alg.distort.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.distort.impl;
 
-import boofcv.alg.distort.ImageDistort;
-import boofcv.struct.distort.PixelTransform_F32;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.image.MultiSpectral;
+import sg.edu.nus.comp.klttracker.boofcv.alg.distort.ImageDistort;
+import sg.edu.nus.comp.klttracker.boofcv.struct.distort.PixelTransform_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.MultiSpectral;
 
 /**
  * Implementation of {@link ImageDistort} for {@link MultiSpectral} images.

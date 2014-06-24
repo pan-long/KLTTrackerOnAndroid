@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
 /**
  * Used to get the weight for a pixel from a kernel in 2D space.  The kernel is assumed to be centered around 0

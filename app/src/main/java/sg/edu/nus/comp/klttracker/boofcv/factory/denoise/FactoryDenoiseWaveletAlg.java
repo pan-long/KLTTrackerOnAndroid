@@ -16,16 +16,16 @@
  * limitations under the License.
  */
 
-package boofcv.factory.denoise;
+package sg.edu.nus.comp.klttracker.boofcv.factory.denoise;
 
-import boofcv.alg.denoise.DenoiseWavelet;
-import boofcv.alg.denoise.ShrinkThresholdRule;
-import boofcv.alg.denoise.wavelet.DenoiseBayesShrink_F32;
-import boofcv.alg.denoise.wavelet.DenoiseSureShrink_F32;
-import boofcv.alg.denoise.wavelet.DenoiseVisuShrink_F32;
-import boofcv.alg.denoise.wavelet.ShrinkThresholdSoft_F32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.DenoiseWavelet;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.ShrinkThresholdRule;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.wavelet.DenoiseBayesShrink_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.wavelet.DenoiseSureShrink_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.wavelet.DenoiseVisuShrink_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.denoise.wavelet.ShrinkThresholdSoft_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

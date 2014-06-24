@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.core.image.border;
+package sg.edu.nus.comp.klttracker.boofcv.core.image.border;
 
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageFloat64;
-import boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat64;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
 
 /**
  * @author Peter Abeles

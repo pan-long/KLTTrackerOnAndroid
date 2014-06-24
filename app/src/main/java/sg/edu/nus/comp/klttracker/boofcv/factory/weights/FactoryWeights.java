@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.factory.weights;
+package sg.edu.nus.comp.klttracker.boofcv.factory.weights;
 
-import boofcv.alg.weights.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.weights.*;
 
 /**
  * Factory for creating sample weight functions of different types.

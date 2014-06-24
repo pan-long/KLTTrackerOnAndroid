@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.impl;
 
-import boofcv.alg.interpolate.NearestNeighborPixel;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageType;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.NearestNeighborPixel;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageType;
 
 
 /**

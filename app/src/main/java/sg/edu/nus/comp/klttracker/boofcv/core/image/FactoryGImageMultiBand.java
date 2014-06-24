@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.core.image;
+package sg.edu.nus.comp.klttracker.boofcv.core.image;
 
-import boofcv.struct.image.ImageBase;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.image.MultiSpectral;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageBase;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.MultiSpectral;
 
 /**
  * @author Peter Abeles

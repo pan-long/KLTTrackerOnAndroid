@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate;
 
 
-import boofcv.alg.interpolate.array.PolynomialNevilleFixed_F32;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.array.PolynomialNevilleFixed_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * <p>

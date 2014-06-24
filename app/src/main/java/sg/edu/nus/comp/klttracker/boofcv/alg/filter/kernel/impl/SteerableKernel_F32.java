@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.kernel.impl;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.impl;
 
 
-import boofcv.alg.filter.kernel.KernelMath;
-import boofcv.alg.filter.kernel.SteerableCoefficients;
-import boofcv.alg.filter.kernel.SteerableKernel;
-import boofcv.struct.convolve.Kernel2D;
-import boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.KernelMath;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.SteerableCoefficients;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.SteerableKernel;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
 
 
 /**

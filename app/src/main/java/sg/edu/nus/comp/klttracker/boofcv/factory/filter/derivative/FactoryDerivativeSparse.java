@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.derivative;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.derivative;
 
-import boofcv.abst.filter.ImageFunctionSparse;
-import boofcv.abst.filter.convolve.ImageConvolveSparse;
-import boofcv.alg.filter.derivative.LaplacianEdge;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.core.image.border.*;
-import boofcv.factory.filter.convolve.FactoryConvolveSparse;
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.convolve.Kernel2D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageInteger;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.ImageFunctionSparse;
+import sg.edu.nus.comp.klttracker.boofcv.abst.filter.convolve.ImageConvolveSparse;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.derivative.LaplacianEdge;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.*;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.convolve.FactoryConvolveSparse;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageInteger;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 /**
  * Creates filters for performing sparse derivative calculations.

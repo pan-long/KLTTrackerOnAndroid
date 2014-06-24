@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.denoise.wavelet;
+package sg.edu.nus.comp.klttracker.boofcv.alg.denoise.wavelet;
 
-import boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
 
 import java.util.Arrays;
 

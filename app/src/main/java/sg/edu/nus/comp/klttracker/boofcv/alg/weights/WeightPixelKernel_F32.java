@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
-import boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
 
 /**
  * Weight which uses the values contained in a {@link Kernel2D_F32}. For performance reasons no checks are

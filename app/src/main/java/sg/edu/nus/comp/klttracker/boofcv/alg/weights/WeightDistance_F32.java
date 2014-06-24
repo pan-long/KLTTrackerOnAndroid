@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.weights;
+package sg.edu.nus.comp.klttracker.boofcv.alg.weights;
 
 /**
  * Converts the distance a sample is into a weight.

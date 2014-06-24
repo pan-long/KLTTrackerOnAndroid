@@ -16,18 +16,18 @@
  * limitations under the License.
  */
 
-package boofcv.factory.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.factory.transform.pyramid;
 
-import boofcv.alg.interpolate.InterpolatePixelS;
-import boofcv.alg.transform.pyramid.PyramidDiscreteSampleBlur;
-import boofcv.alg.transform.pyramid.PyramidFloatGaussianScale;
-import boofcv.factory.filter.kernel.FactoryKernel;
-import boofcv.factory.filter.kernel.FactoryKernelGaussian;
-import boofcv.factory.interpolate.FactoryInterpolation;
-import boofcv.struct.convolve.Kernel1D;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.PyramidDiscrete;
-import boofcv.struct.pyramid.PyramidFloat;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolatePixelS;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid.PyramidDiscreteSampleBlur;
+import sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid.PyramidFloatGaussianScale;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernel;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernelGaussian;
+import sg.edu.nus.comp.klttracker.boofcv.factory.interpolate.FactoryInterpolation;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.PyramidDiscrete;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.PyramidFloat;
 
 
 /**

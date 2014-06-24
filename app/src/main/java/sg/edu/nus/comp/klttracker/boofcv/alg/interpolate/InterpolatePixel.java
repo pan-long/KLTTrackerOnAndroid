@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate;
 
-import boofcv.struct.image.ImageBase;
-import boofcv.struct.image.ImageType;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageBase;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageType;
 
 
 /**

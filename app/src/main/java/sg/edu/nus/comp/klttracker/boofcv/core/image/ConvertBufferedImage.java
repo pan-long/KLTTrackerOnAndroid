@@ -16,9 +16,9 @@
  * limitations under the License.
  */
 
-package boofcv.core.image;
+package sg.edu.nus.comp.klttracker.boofcv.core.image;
 
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
 import sun.awt.image.ByteInterleavedRaster;
 import sun.awt.image.IntegerInterleavedRaster;
 import sun.awt.image.ShortInterleavedRaster;

@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package boofcv.alg.interpolate.array;
+package sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.array;
 
 
 /**

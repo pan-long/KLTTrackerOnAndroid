@@ -16,14 +16,14 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid;
 
-import boofcv.alg.distort.DistortImageOps;
-import boofcv.alg.distort.PixelTransformAffine_F32;
-import boofcv.alg.distort.impl.DistortSupport;
-import boofcv.alg.interpolate.InterpolatePixelS;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.PyramidFloat;
+import sg.edu.nus.comp.klttracker.boofcv.alg.distort.DistortImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.alg.distort.PixelTransformAffine_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.distort.impl.DistortSupport;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.InterpolatePixelS;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.PyramidFloat;
 
 
 /**

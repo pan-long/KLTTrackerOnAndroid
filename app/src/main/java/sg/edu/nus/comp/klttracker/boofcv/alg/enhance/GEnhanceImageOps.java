@@ -16,14 +16,16 @@
  * limitations under the License.
  */
 
-package boofcv.alg.enhance;
+package sg.edu.nus.comp.klttracker.boofcv.alg.enhance;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.enhance.impl.ImplEnhanceFilter;
-import boofcv.alg.filter.convolve.border.ConvolveJustBorder_General;
-import boofcv.core.image.border.ImageBorder_I32;
-import boofcv.struct.BoofDefaults;
-import boofcv.struct.image.*;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt16;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
 
 /**
  * Weakly typed version of {@link EnhanceImageOps}.
@@ -54,7 +56,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageSInt32) {
 			EnhanceImageOps.applyTransform((ImageSInt32)input,transform,minValue,(ImageSInt32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
 		}
 	}
 
@@ -75,7 +77,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageUInt16 ) {
 			EnhanceImageOps.equalizeLocal((ImageUInt16)input,radius,(ImageUInt16)output,histogram,transform);
 		} else {
-			throw new IllegalArgumentException("Unsupported image type "+input.getClass().getSimpleName());
+			throw new IllegalArgumentException("Unsupported image type "+((Object) input).getClass().getSimpleName());
 		}
 	}
 
@@ -91,7 +93,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageFloat32) {
 			EnhanceImageOps.sharpen4((ImageFloat32)input, (ImageFloat32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
 		}
 	}
 
@@ -107,7 +109,7 @@ public class GEnhanceImageOps {
 		} else if( input instanceof ImageFloat32) {
 			EnhanceImageOps.sharpen8((ImageFloat32)input, (ImageFloat32)output);
 		} else {
-			throw new IllegalArgumentException("Image type not supported. "+input.getClass().getSimpleName());
+			throw new IllegalArgumentException("Image type not supported. "+((Object) input).getClass().getSimpleName());
 		}
 	}
 }

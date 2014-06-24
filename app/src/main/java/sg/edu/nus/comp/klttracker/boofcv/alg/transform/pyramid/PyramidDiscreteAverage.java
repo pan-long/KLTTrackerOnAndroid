@@ -16,11 +16,11 @@
  * limitations under the License.
  */
 
-package boofcv.alg.transform.pyramid;
+package sg.edu.nus.comp.klttracker.boofcv.alg.transform.pyramid;
 
-import boofcv.alg.filter.misc.AverageDownSampleOps;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.pyramid.PyramidDiscrete;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.misc.AverageDownSampleOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.pyramid.PyramidDiscrete;
 
 /**
  * Creates an image pyramid by down sampling square regions using {@link AverageDownSampleOps}.

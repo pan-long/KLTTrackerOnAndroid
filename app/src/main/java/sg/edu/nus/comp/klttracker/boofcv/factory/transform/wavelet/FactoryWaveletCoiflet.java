@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.factory.transform.wavelet;
+package sg.edu.nus.comp.klttracker.boofcv.factory.transform.wavelet;
 
-import boofcv.core.image.border.BorderIndex1D_Wrap;
-import boofcv.struct.wavelet.WaveletDescription;
-import boofcv.struct.wavelet.WlBorderCoefStandard;
-import boofcv.struct.wavelet.WlCoef_F32;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.border.BorderIndex1D_Wrap;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WaveletDescription;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlBorderCoefStandard;
+import sg.edu.nus.comp.klttracker.boofcv.struct.wavelet.WlCoef_F32;
 
 
 /**

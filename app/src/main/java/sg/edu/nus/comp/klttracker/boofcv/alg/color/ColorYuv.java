@@ -16,12 +16,12 @@
  * limitations under the License.
  */
 
-package boofcv.alg.color;
+package sg.edu.nus.comp.klttracker.boofcv.alg.color;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageUInt8;
-import boofcv.struct.image.MultiSpectral;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.MultiSpectral;
 
 /**
  * <p>

@@ -16,19 +16,19 @@
  * limitations under the License.
  */
 
-package boofcv.factory.filter.kernel;
+package sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel;
 
-import boofcv.alg.distort.DistortImageOps;
-import boofcv.alg.filter.kernel.GKernelMath;
-import boofcv.alg.filter.kernel.SteerableKernel;
-import boofcv.alg.filter.kernel.impl.SteerableKernel_F32;
-import boofcv.alg.filter.kernel.impl.SteerableKernel_I32;
-import boofcv.alg.interpolate.TypeInterpolate;
-import boofcv.alg.misc.GImageMiscOps;
-import boofcv.struct.convolve.Kernel1D;
-import boofcv.struct.convolve.Kernel2D;
-import boofcv.struct.convolve.Kernel2D_F32;
-import boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.alg.distort.DistortImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.GKernelMath;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.SteerableKernel;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.impl.SteerableKernel_F32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.kernel.impl.SteerableKernel_I32;
+import sg.edu.nus.comp.klttracker.boofcv.alg.interpolate.TypeInterpolate;
+import sg.edu.nus.comp.klttracker.boofcv.alg.misc.GImageMiscOps;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel2D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
 
 
 /**

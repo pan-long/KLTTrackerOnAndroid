@@ -16,22 +16,22 @@
  * limitations under the License.
  */
 
-package boofcv.alg.filter.blur;
+package sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur;
 
-import boofcv.alg.InputSanityCheck;
-import boofcv.alg.filter.blur.impl.ImplMedianHistogramInner;
-import boofcv.alg.filter.blur.impl.ImplMedianSortEdgeNaive;
-import boofcv.alg.filter.blur.impl.ImplMedianSortNaive;
-import boofcv.alg.filter.convolve.ConvolveImageMean;
-import boofcv.alg.filter.convolve.ConvolveNormalized;
-import boofcv.core.image.GeneralizedImageOps;
-import boofcv.factory.filter.kernel.FactoryKernelGaussian;
-import boofcv.struct.convolve.Kernel1D_F32;
-import boofcv.struct.convolve.Kernel1D_I32;
-import boofcv.struct.image.ImageFloat32;
-import boofcv.struct.image.ImageSingleBand;
-import boofcv.struct.image.ImageUInt8;
-import boofcv.struct.image.MultiSpectral;
+import sg.edu.nus.comp.klttracker.boofcv.alg.InputSanityCheck;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur.impl.ImplMedianHistogramInner;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur.impl.ImplMedianSortEdgeNaive;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.blur.impl.ImplMedianSortNaive;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveImageMean;
+import sg.edu.nus.comp.klttracker.boofcv.alg.filter.convolve.ConvolveNormalized;
+import sg.edu.nus.comp.klttracker.boofcv.core.image.GeneralizedImageOps;
+import sg.edu.nus.comp.klttracker.boofcv.factory.filter.kernel.FactoryKernelGaussian;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_F32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.convolve.Kernel1D_I32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageFloat32;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSingleBand;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+import sg.edu.nus.comp.klttracker.boofcv.struct.image.MultiSpectral;
 
 /**
  * Catch all class for function which "blur" an image, typically used to "reduce" the amount
