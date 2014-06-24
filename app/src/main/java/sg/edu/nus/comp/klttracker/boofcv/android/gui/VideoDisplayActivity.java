@@ -2,17 +2,41 @@ package sg.edu.nus.comp.klttracker.boofcv.android.gui;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.SurfaceView;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import android.widget.LinearLayout.LayoutParams;
+
 /**
- * Created by panlong on 24/6/14.
+ *
+ * <p>
+ * Activity for processing and displaying video results.  Use of this class can save you a considerable amount of
+ * effort if you wish to display processed video frames as an image.  The actual processing of image data is
+ * done by a class provided to it via {@link #setProcessing}.
+ * </p>
+ *
+ * <p>
+ * Shutting down and restarting the camera as the activity transitions to different
+ * phases in its life cycle is correctly handled here.  The display can also be customized.
+ * User interaction and additional display widgets can be added to the activity.  To access the main content
+ * view call {@link #getViewContent} and to access the video display call {@link #getViewPreview},
+ * </p>
+ *
+ * <p>
+ * If you wish to use this class and not display a preview that is also possible.  Simply set {@link #hidePreview}
+ * to false.  To display the FPS which the video sequence is processed at pass in true to {@link #setShowFPS(boolean)},
+ * </p>
+ *
+ * @author Peter Abeles
  */
-public abstract class VideoDisplayActivity extends Activity implements Camera.PreviewCallback{
+public abstract class VideoDisplayActivity extends Activity implements Camera.PreviewCallback {
 
     protected Camera mCamera;
     protected Camera.CameraInfo mCameraInfo = new Camera.CameraInfo();
@@ -80,10 +104,10 @@ public abstract class VideoDisplayActivity extends Activity implements Camera.Pr
 
         contentView = new LinearLayout(this);
         contentView.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams contentParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        LayoutParams contentParam = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 
         preview = new FrameLayout(this);
-        LinearLayout.LayoutParams frameLayoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT,1);
+        LayoutParams frameLayoutParam = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT,1);
         contentView.addView(preview, frameLayoutParam);
 
         mDraw = new Visualization(this);
