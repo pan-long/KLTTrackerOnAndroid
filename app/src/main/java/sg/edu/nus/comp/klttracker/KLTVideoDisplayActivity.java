@@ -1,16 +1,21 @@
 package sg.edu.nus.comp.klttracker;
 
+import android.hardware.Camera;
+import android.os.Bundle;
+
+import sg.edu.nus.comp.klttracker.boofcv.android.gui.VideoDisplayActivity;
+
 /**
  * Created by panlong on 24/6/14.
  */
-public class KLTVideoDisplayActivity extends VideoDisplayActivity{
+public class KLTVideoDisplayActivity extends VideoDisplayActivity {
 
-    public static DemoPreference preference;
+    public static Preference preference;
 
-    public DemoVideoDisplayActivity() {
+    public KLTVideoDisplayActivity() {
     }
 
-    public DemoVideoDisplayActivity(boolean hidePreview) {
+    public KLTVideoDisplayActivity(boolean hidePreview) {
         super(hidePreview);
     }
 
@@ -18,7 +23,7 @@ public class KLTVideoDisplayActivity extends VideoDisplayActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preference = DemoMain.preference;
+        preference = klt_main.preference;
         setShowFPS(preference.showFps);
     }
 

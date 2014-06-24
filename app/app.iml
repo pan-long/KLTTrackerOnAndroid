@@ -61,6 +61,9 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" exported="" name="georegression-0.6" level="project" />
+    <orderEntry type="library" exported="" name="ejml-0.25" level="project" />
+    <orderEntry type="library" exported="" name="ddogleg-0.5" level="project" />
   </component>
 </module>
 
