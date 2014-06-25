@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 import boofcv.android.BoofAndroidFiles;
 
@@ -40,8 +42,16 @@ public class KLTMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klt_main);
 
-        Intent intent = new Intent(this, KLTDisplayActivity.class);
-        startActivity(intent);
+        final Intent intent = new Intent(this, KLTDisplayActivity.class);
+//        startActivity(intent);
+
+        final Button button = (Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
