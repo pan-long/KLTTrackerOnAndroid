@@ -6,7 +6,7 @@ import android.view.View;
 import sg.edu.nus.comp.klttracker.boofcv.alg.misc.GImageMiscOps;
 import sg.edu.nus.comp.klttracker.boofcv.android.ConvertNV21;
 import sg.edu.nus.comp.klttracker.boofcv.struct.image.*;
-import sg.edu.nus.comp.klttracker.georegression.struct.point.Point2D_F64;
+import georegression.struct.point.Point2D_F64;
 
 /**
  * <p>
