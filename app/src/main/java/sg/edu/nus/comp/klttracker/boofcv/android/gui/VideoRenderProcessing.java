@@ -175,7 +175,7 @@ public abstract class VideoRenderProcessing<T extends ImageBase> extends Thread 
         while( !requestStop ) {
             synchronized ( thread ) {
                 try {
-                    wait();
+                    ((Object) this).wait();
                     if( requestStop )
                         break;
                 } catch (InterruptedException e) {}
