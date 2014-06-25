@@ -1,6 +1,7 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.os.Bundle;
+
 import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
 import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.factory.feature.tracker.FactoryPointTracker;
