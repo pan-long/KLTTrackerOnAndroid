@@ -97,7 +97,7 @@ public class PreferenceActivity extends Activity
     private void setupSizeSpinners() {
         CameraSpecs camera = specs.get(preference.cameraId);
 
-        ArrayAdapter<CharSequence> adapterVideo = (ArrayAdapter<CharSequence>)spinnerVideo.getAdapter();
+        ArrayAdapter<CharSequence> adapterVideo = (ArrayAdapter<CharSequence>) spinnerVideo.getAdapter();
         ArrayAdapter<CharSequence> adapterPicture = (ArrayAdapter<CharSequence>)spinnerPicture.getAdapter();
 
         addAll(camera.sizePreview,adapterVideo);

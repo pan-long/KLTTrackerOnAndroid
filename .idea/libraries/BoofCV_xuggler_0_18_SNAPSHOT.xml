@@ -4,8 +4,6 @@
       <root url="jar://$PROJECT_DIR$/app/libs/BoofCV-xuggler-0.18-SNAPSHOT.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$PROJECT_DIR$/app/libs/BoofCV-xuggler-0.18-SNAPSHOT-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

@@ -143,7 +143,7 @@ public class klt_main extends Activity {
         } catch (FileNotFoundException e) {
 
         } catch (IOException e) {
-            Toast.makeText(this, "Failed to load intrinsic parameters", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Failed to load intrinsic parameters", 2000).show();
         }
     }
 
