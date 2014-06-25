@@ -21,8 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".KltDisplayActivity"
-            android:screenOrientation="landscape" />
+        <activity android:name=".KltDisplayActivity" />
 
         <activity android:name=".PreferenceActivity" />
 
