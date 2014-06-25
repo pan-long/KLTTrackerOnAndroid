@@ -35,8 +35,8 @@ public class PreferenceActivity extends Activity
 
         setContentView(R.layout.preference_activity);
 
-        specs = klt_main.specs;
-        preference = klt_main.preference;
+        specs = KLTMainActivity.specs;
+        preference = KLTMainActivity.preference;
 
         checkFPS = (CheckBox) findViewById(R.id.checkbox_FPS);
         spinnerCamera = (Spinner) findViewById(R.id.spinner_camera);
@@ -104,7 +104,7 @@ public class PreferenceActivity extends Activity
         addAll(camera.sizePicture,adapterPicture);
 
         // select a similar size to what it had selected before
-        Preference preference = klt_main.preference;
+        Preference preference = KLTMainActivity.preference;
         preference.preview = UtilVarious.closest(camera.sizePreview, prefVideoSize.width, prefVideoSize.height);
         preference.picture = UtilVarious.closest(camera.sizePicture, prefPictureSize.width, prefPictureSize.height);
 
@@ -157,7 +157,7 @@ public class PreferenceActivity extends Activity
 //			Toast.makeText(this,"spinner unknown",2).show();
             Log.d("PreferenceActivity","onItemSelected unknown");
         }
-        klt_main.changedPreferences = true;
+        KLTMainActivity.changedPreferences = true;
     }
 
     @Override

@@ -23,7 +23,7 @@ public class KLTVideoDisplayActivity extends VideoDisplayActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        preference = klt_main.preference;
+        preference = KLTMainActivity.preference;
         setShowFPS(preference.showFps);
     }
 

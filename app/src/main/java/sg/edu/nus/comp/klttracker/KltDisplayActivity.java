@@ -11,7 +11,7 @@ import boofcv.struct.image.ImageUInt8;
 /**
  * Created by panlong on 24/6/14.
  */
-public class KltDisplayActivity extends PointTrackerDisplayActivity{
+public class KLTDisplayActivity extends PointTrackerDisplayActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
