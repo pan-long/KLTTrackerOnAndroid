@@ -5,6 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
+import boofcv.core.image.GConvertImage;
+import boofcv.struct.image.ImageDataType;
+import boofcv.struct.image.ImageType;
+import boofcv.struct.image.MultiSpectral;
 import org.ddogleg.struct.FastQueue;
 
 import java.util.ArrayList;
@@ -35,13 +39,14 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
         paintBlue.setStyle(Paint.Style.FILL);
     }
 
-    protected class PointProcessing extends VideoRenderProcessing<ImageUInt8> {
+    protected class PointProcessing extends VideoRenderProcessing<MultiSpectral<ImageUInt8>> {
         PointTracker<ImageUInt8> tracker;
 
         long tick;
 
         Bitmap bitmap;
         byte[] storage;
+        int imageWidth, imageHeight;
 
         List<PointTrack> active = new ArrayList<PointTrack>();
         List<PointTrack> spawned = new ArrayList<PointTrack>();
@@ -54,7 +59,8 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
 
 
         public PointProcessing( PointTracker<ImageUInt8> tracker ) {
-            super(boofcv.struct.image.ImageType.single(boofcv.struct.image.ImageUInt8.class));
+            //super(boofcv.struct.image.ImageType.single(boofcv.struct.image.ImageUInt8.class));
+            super(ImageType.ms(3, ImageUInt8.class));
             this.tracker = tracker;
         }
 
@@ -63,10 +69,13 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
             super.declareImages(width, height);
             bitmap = Bitmap.createBitmap(width,height,Bitmap.Config.ARGB_8888);
             storage = ConvertBitmap.declareStorage(bitmap, storage);
+            imageWidth = width; imageHeight = height;
         }
 
         @Override
-        protected void process(boofcv.struct.image.ImageUInt8 gray) {
+        protected void process(MultiSpectral<ImageUInt8> color) {
+            ImageUInt8 gray = new ImageUInt8(imageWidth, imageHeight);
+            GConvertImage.convert(color, gray);
             tracker.process(gray);
 
             // drop tracks which are no longer being used
@@ -112,7 +121,8 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
             }
 
             synchronized ( lockGui ) {
-                ConvertBitmap.grayToBitmap(gray,bitmap,storage);
+                //ConvertBitmap.grayToBitmap(gray,bitmap,storage);
+                ConvertBitmap.multiToBitmap(color, bitmap, storage);
 
                 trackSrc.reset();
                 trackDst.reset();
