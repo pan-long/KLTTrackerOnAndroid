@@ -35,7 +35,7 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
         paintBlue.setStyle(Paint.Style.FILL);
     }
 
-    protected abstract class PointProcessing extends VideoRenderProcessing<ImageUInt8> {
+    protected class PointProcessing extends VideoRenderProcessing<ImageUInt8> {
         PointTracker<ImageUInt8> tracker;
 
         long tick;
