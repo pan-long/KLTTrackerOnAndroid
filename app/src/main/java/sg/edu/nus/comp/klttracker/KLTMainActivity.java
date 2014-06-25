@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class klt_main extends Activity {
+public class KLTMainActivity extends Activity {
     // contains information on all the cameras.  less error prone and easier to deal with
     public static List<CameraSpecs> specs = new ArrayList<CameraSpecs>();
 
@@ -28,7 +28,7 @@ public class klt_main extends Activity {
     // camera parameters.
     public static boolean changedPreferences = false;
 
-    public klt_main() {
+    public KLTMainActivity() {
         loadCameraSpecs();
     }
 
@@ -40,7 +40,7 @@ public class klt_main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klt_main);
 
-        Intent intent = new Intent(this, KltDisplayActivity.class);
+        Intent intent = new Intent(this, KLTDisplayActivity.class);
         startActivity(intent);
     }
 
