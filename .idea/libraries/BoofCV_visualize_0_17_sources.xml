@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="BoofCV-visualize-0.17-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/BoofCV-visualize-0.17-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

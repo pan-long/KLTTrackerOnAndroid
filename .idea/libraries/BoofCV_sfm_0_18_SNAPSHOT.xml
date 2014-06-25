@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="BoofCV-sfm-0.18-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/BoofCV-sfm-0.18-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/app/libs/BoofCV-sfm-0.18-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

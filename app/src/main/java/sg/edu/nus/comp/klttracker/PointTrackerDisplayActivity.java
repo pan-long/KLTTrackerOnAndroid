@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import georegression.struct.point.Point2D_F64;
-import sg.edu.nus.comp.klttracker.boofcv.abst.feature.tracker.PointTrack;
-import sg.edu.nus.comp.klttracker.boofcv.abst.feature.tracker.PointTracker;
-import sg.edu.nus.comp.klttracker.boofcv.android.ConvertBitmap;
-import sg.edu.nus.comp.klttracker.boofcv.android.gui.VideoRenderProcessing;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+import boofcv.abst.feature.tracker.PointTrack;
+import boofcv.abst.feature.tracker.PointTracker;
+import boofcv.android.ConvertBitmap;
+import boofcv.android.gui.VideoRenderProcessing;
+import boofcv.struct.image.ImageUInt8;
 
 /**
  * Created by panlong on 24/6/14.
@@ -54,7 +54,7 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
 
 
         public PointProcessing( PointTracker<ImageUInt8> tracker ) {
-            super(sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageType.single(sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8.class));
+            super(boofcv.struct.image.ImageType.single(boofcv.struct.image.ImageUInt8.class));
             this.tracker = tracker;
         }
 
@@ -66,7 +66,7 @@ public class PointTrackerDisplayActivity extends KLTVideoDisplayActivity{
         }
 
         @Override
-        protected void process(sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8 gray) {
+        protected void process(boofcv.struct.image.ImageUInt8 gray) {
             tracker.process(gray);
 
             // drop tracks which are no longer being used

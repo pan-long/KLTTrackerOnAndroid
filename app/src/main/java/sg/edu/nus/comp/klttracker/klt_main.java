@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
-import sg.edu.nus.comp.klttracker.boofcv.android.BoofAndroidFiles;
+import boofcv.android.BoofAndroidFiles;
 
 import java.io.*;
 import java.util.ArrayList;

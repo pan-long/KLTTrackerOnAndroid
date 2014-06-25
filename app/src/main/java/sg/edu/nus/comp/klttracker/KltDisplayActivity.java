@@ -1,11 +1,11 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.os.Bundle;
-import sg.edu.nus.comp.klttracker.boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
-import sg.edu.nus.comp.klttracker.boofcv.abst.feature.tracker.PointTracker;
-import sg.edu.nus.comp.klttracker.boofcv.factory.feature.tracker.FactoryPointTracker;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageSInt16;
-import sg.edu.nus.comp.klttracker.boofcv.struct.image.ImageUInt8;
+import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
+import boofcv.abst.feature.tracker.PointTracker;
+import boofcv.factory.feature.tracker.FactoryPointTracker;
+import boofcv.struct.image.ImageSInt16;
+import boofcv.struct.image.ImageUInt8;
 
 /**
  * Created by panlong on 24/6/14.

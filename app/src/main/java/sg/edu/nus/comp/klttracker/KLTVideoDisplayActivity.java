@@ -3,7 +3,7 @@ package sg.edu.nus.comp.klttracker;
 import android.hardware.Camera;
 import android.os.Bundle;
 
-import sg.edu.nus.comp.klttracker.boofcv.android.gui.VideoDisplayActivity;
+import boofcv.android.gui.VideoDisplayActivity;
 
 /**
  * Created by panlong on 24/6/14.
