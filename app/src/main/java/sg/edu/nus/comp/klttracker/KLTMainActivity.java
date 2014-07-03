@@ -124,7 +124,7 @@ public class KLTMainActivity extends Activity {
         }
 
         CameraSpecs camera = specs.get(preference.cameraId);
-        preference.preview = UtilVarious.closest(camera.sizePreview,320,240);
+        preference.preview = UtilVarious.closest(camera.sizePreview,640,480);
         preference.picture = UtilVarious.closest(camera.sizePicture,640,480);
 
         // see if there are any intrinsic parameters to load
