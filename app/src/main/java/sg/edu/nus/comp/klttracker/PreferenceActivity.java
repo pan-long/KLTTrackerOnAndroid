@@ -20,7 +20,7 @@ public class PreferenceActivity extends Activity
 
     CheckBox checkFPS;
     Spinner spinnerCamera;
-    Spinner spinnerVideo;
+//    Spinner spinnerVideo;
     Spinner spinnerPicture;
 
     // size the user selected.  when cameras change it tries to select a similar size
@@ -40,7 +40,7 @@ public class PreferenceActivity extends Activity
 
         checkFPS = (CheckBox) findViewById(R.id.checkbox_FPS);
         spinnerCamera = (Spinner) findViewById(R.id.spinner_camera);
-        spinnerVideo = (Spinner) findViewById(R.id.spinner_video_size);
+//        spinnerVideo = (Spinner) findViewById(R.id.spinner_video_size);
         spinnerPicture = (Spinner) findViewById(R.id.spinner_picture_size);
 
         // remember the size the user selected
@@ -52,7 +52,7 @@ public class PreferenceActivity extends Activity
 
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerVideo.setAdapter(adapter);
+//        spinnerVideo.setAdapter(adapter);
         adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPicture.setAdapter(adapter);
@@ -66,7 +66,7 @@ public class PreferenceActivity extends Activity
 
         checkFPS.setOnCheckedChangeListener(this);
         spinnerCamera.setOnItemSelectedListener(this);
-        spinnerVideo.setOnItemSelectedListener(this);
+//        spinnerVideo.setOnItemSelectedListener(this);
         spinnerPicture.setOnItemSelectedListener(this);
     }
 
@@ -97,10 +97,10 @@ public class PreferenceActivity extends Activity
     private void setupSizeSpinners() {
         CameraSpecs camera = specs.get(preference.cameraId);
 
-        ArrayAdapter<CharSequence> adapterVideo = (ArrayAdapter<CharSequence>) spinnerVideo.getAdapter();
+//        ArrayAdapter<CharSequence> adapterVideo = (ArrayAdapter<CharSequence>) spinnerVideo.getAdapter();
         ArrayAdapter<CharSequence> adapterPicture = (ArrayAdapter<CharSequence>)spinnerPicture.getAdapter();
 
-        addAll(camera.sizePreview,adapterVideo);
+//        addAll(camera.sizePreview,adapterVideo);
         addAll(camera.sizePicture,adapterPicture);
 
         // select a similar size to what it had selected before
@@ -108,10 +108,10 @@ public class PreferenceActivity extends Activity
         preference.preview = UtilVarious.closest(camera.sizePreview, prefVideoSize.width, prefVideoSize.height);
         preference.picture = UtilVarious.closest(camera.sizePicture, prefPictureSize.width, prefPictureSize.height);
 
-        spinnerVideo.setSelection(preference.preview);
+//        spinnerVideo.setSelection(preference.preview);
         spinnerPicture.setSelection(preference.picture );
 
-        spinnerVideo.invalidate();
+//        spinnerVideo.invalidate();
         spinnerPicture.invalidate();
     }
 
@@ -136,16 +136,17 @@ public class PreferenceActivity extends Activity
                 preference.cameraId = selected;
                 setupSizeSpinners();
             }
-        } else if( spinnerVideo == adapterView ) {
-//			Toast.makeText(this,"spinner video",2).show();
-            Log.d("PreferenceActivity","onItemSelected video");
-
-            int selected = spinnerVideo.getSelectedItemPosition();
-            if( selected != preference.preview ) {
-                preference.preview = selected;
-                prefVideoSize = camera.sizePreview.get(preference.preview);
-            }
-        } else if( spinnerPicture == adapterView ) {
+//        } else if( spinnerVideo == adapterView ) {
+////			Toast.makeText(this,"spinner video",2).show();
+//            Log.d("PreferenceActivity","onItemSelected video");
+//
+//            int selected = spinnerVideo.getSelectedItemPosition();
+//            if( selected != preference.preview ) {
+//                preference.preview = selected;
+//                prefVideoSize = camera.sizePreview.get(preference.preview);
+//            }
+        }
+        else if( spinnerPicture == adapterView ) {
 //			Toast.makeText(this,"spinner picture",2).show();
             Log.d("PreferenceActivity","onItemSelected picture");
             int selected = spinnerPicture.getSelectedItemPosition();
