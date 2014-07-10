@@ -12,11 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-import boofcv.android.BoofAndroidFiles;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+
+import boofcv.android.BoofAndroidFiles;
 
 
 public class KLTMainActivity extends Activity {
