@@ -45,8 +45,8 @@ public class KLTMainActivity extends Activity {
         final Intent intent = new Intent(this, KLTDisplayActivity.class);
 //        startActivity(intent);
 
-        final Button button = (Button)findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button button_camera = (Button)findViewById(R.id.button_open_camera);
+        button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(intent);
