@@ -25,10 +25,6 @@ import boofcv.android.BoofAndroidFiles;
 
 
 public class KLTMainActivity extends Activity {
-    // mode for KLT Tracking, currently support for camera mode and video mode
-    private final int CAMERA_MODE = 0;
-    private final int VIDEO_MODE = 1;
-
     // contains information on all the cameras.  less error prone and easier to deal with
     public static List<CameraSpecs> specs = new ArrayList<CameraSpecs>();
 
@@ -60,7 +56,7 @@ public class KLTMainActivity extends Activity {
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preference.mode = CAMERA_MODE;
+                preference.mode = Preference.CAMERA_MODE;
                 startActivity(intent);
             }
         });
@@ -68,7 +64,7 @@ public class KLTMainActivity extends Activity {
         button_video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preference.mode = VIDEO_MODE;
+                preference.mode = Preference.VIDEO_MODE;
                 startActivity(intent);
             }
         });
@@ -128,24 +124,29 @@ public class KLTMainActivity extends Activity {
         // which was a work around a bad design decision where front facing cameras wouldn't be accepted as hardware
         // which is an issue on tablets with only front facing cameras
         if( specs.size() == 0 ) {
+            preference.mode = Preference.VIDEO_MODE;
             dialogNoCamera();
         }
-        // select a front facing camera as the default
-        for (int i = 0; i < specs.size(); i++) {
-            CameraSpecs c = specs.get(i);
 
-            if( c.info.facing == Camera.CameraInfo.CAMERA_FACING_BACK ) {
-                preference.cameraId = i;
-                break;
-            } else {
-                // default to a front facing camera if a back facing one can't be found
-                preference.cameraId = i;
+        else {
+            preference.mode = Preference.CAMERA_MODE;
+            // select a front facing camera as the default
+            for (int i = 0; i < specs.size(); i++) {
+                CameraSpecs c = specs.get(i);
+
+                if (c.info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                    preference.cameraId = i;
+                    break;
+                } else {
+                    // default to a front facing camera if a back facing one can't be found
+                    preference.cameraId = i;
+                }
             }
-        }
 
-        CameraSpecs camera = specs.get(preference.cameraId);
-        preference.preview = UtilVarious.closest(camera.sizePreview,320,240);
-        preference.picture = UtilVarious.closest(camera.sizePicture,640,480);
+            CameraSpecs camera = specs.get(preference.cameraId);
+            preference.preview = UtilVarious.closest(camera.sizePreview, 320, 240);
+            preference.picture = UtilVarious.closest(camera.sizePicture, 640, 480);
+        }
 
         // see if there are any intrinsic parameters to load
         loadIntrinsic();
@@ -153,11 +154,10 @@ public class KLTMainActivity extends Activity {
 
     private void dialogNoCamera() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your device has no cameras!")
+        builder.setMessage("Your device has no cameras! You can only local video!")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        System.exit(0);
                     }
                 });
         AlertDialog alert = builder.create();

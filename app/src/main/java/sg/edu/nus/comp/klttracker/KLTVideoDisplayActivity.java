@@ -29,17 +29,21 @@ public class KLTVideoDisplayActivity extends VideoDisplayActivity {
 
     @Override
     protected Camera openConfigureCamera( Camera.CameraInfo info ) {
-        Camera mCamera = Camera.open(preference.cameraId);
-        Camera.getCameraInfo(preference.cameraId,info);
+        if (preference.mode == Preference.CAMERA_MODE) {
+            Camera mCamera = Camera.open(preference.cameraId);
+            Camera.getCameraInfo(preference.cameraId, info);
 
-        Camera.Parameters param = mCamera.getParameters();
-        Camera.Size sizePreview = param.getSupportedPreviewSizes().get(preference.preview);
-        param.setPreviewSize(sizePreview.width,sizePreview.height);
-        Camera.Size sizePicture = param.getSupportedPictureSizes().get(preference.picture);
-        param.setPictureSize(sizePicture.width, sizePicture.height);
-        mCamera.setParameters(param);
+            Camera.Parameters param = mCamera.getParameters();
+            Camera.Size sizePreview = param.getSupportedPreviewSizes().get(preference.preview);
+            param.setPreviewSize(sizePreview.width, sizePreview.height);
+            Camera.Size sizePicture = param.getSupportedPictureSizes().get(preference.picture);
+            param.setPictureSize(sizePicture.width, sizePicture.height);
+            mCamera.setParameters(param);
 
-        return mCamera;
+            return mCamera;
+        }
+
+        return null;
     }
 
 }
