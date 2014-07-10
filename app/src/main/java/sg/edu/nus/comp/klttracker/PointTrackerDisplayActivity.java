@@ -5,21 +5,20 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
-import boofcv.core.image.GConvertImage;
-import boofcv.struct.image.ImageDataType;
-import boofcv.struct.image.ImageType;
-import boofcv.struct.image.MultiSpectral;
 import org.ddogleg.struct.FastQueue;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import georegression.struct.point.Point2D_F64;
 import boofcv.abst.feature.tracker.PointTrack;
 import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.android.ConvertBitmap;
 import boofcv.android.gui.VideoRenderProcessing;
+import boofcv.core.image.GConvertImage;
+import boofcv.struct.image.ImageType;
 import boofcv.struct.image.ImageUInt8;
+import boofcv.struct.image.MultiSpectral;
+import georegression.struct.point.Point2D_F64;
 
 /**
  * Created by panlong on 24/6/14.
