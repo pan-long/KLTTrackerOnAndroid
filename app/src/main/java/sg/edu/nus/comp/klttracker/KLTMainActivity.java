@@ -158,7 +158,6 @@ public class KLTMainActivity extends Activity {
     }
 
     public void  onContentChanged  () {
-        System.out.println("onContentChanged");
         super.onContentChanged();
     }
 }
