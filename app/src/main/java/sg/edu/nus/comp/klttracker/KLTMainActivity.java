@@ -25,6 +25,10 @@ import boofcv.android.BoofAndroidFiles;
 
 
 public class KLTMainActivity extends Activity {
+    // mode for KLT Tracking, currently support for camera mode and video mode
+    private final int CAMERA_MODE = 0;
+    private final int VIDEO_MODE = 1;
+
     // contains information on all the cameras.  less error prone and easier to deal with
     public static List<CameraSpecs> specs = new ArrayList<CameraSpecs>();
 
@@ -51,9 +55,20 @@ public class KLTMainActivity extends Activity {
 //        startActivity(intent);
 
         final Button button_camera = (Button)findViewById(R.id.button_open_camera);
+        final Button button_video = (Button)findViewById(R.id.button_open_video);
+
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                preference.mode = CAMERA_MODE;
+                startActivity(intent);
+            }
+        });
+
+        button_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preference.mode = VIDEO_MODE;
                 startActivity(intent);
             }
         });
