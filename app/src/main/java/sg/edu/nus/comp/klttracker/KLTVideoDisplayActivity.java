@@ -29,7 +29,6 @@ public class KLTVideoDisplayActivity extends VideoDisplayActivity {
 
     @Override
     protected Camera openConfigureCamera( Camera.CameraInfo info ) {
-        if (preference.mode == Preference.CAMERA_MODE) {
             Camera mCamera = Camera.open(preference.cameraId);
             Camera.getCameraInfo(preference.cameraId, info);
 
@@ -41,9 +40,6 @@ public class KLTVideoDisplayActivity extends VideoDisplayActivity {
             mCamera.setParameters(param);
 
             return mCamera;
-        }
-
-        return null;
     }
 
 }

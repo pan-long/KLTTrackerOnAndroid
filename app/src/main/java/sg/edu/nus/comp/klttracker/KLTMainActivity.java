@@ -35,6 +35,9 @@ public class KLTMainActivity extends Activity {
     // camera parameters.
     public static boolean changedPreferences = false;
 
+    private Button button_camera;
+    private Button button_video;
+
     public KLTMainActivity() {
         loadCameraSpecs();
     }
@@ -47,17 +50,18 @@ public class KLTMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klt_main);
 
-        final Intent intent = new Intent(this, KLTDisplayActivity.class);
+        final Intent camera_intent = new Intent(this, KLTDisplayActivity.class);
+        final Intent video_intent = new Intent(this, KLTLocalVideoDisplayActivity.class);
 //        startActivity(intent);
 
-        final Button button_camera = (Button)findViewById(R.id.button_open_camera);
-        final Button button_video = (Button)findViewById(R.id.button_open_video);
+        button_camera = (Button)findViewById(R.id.button_open_camera);
+        button_video = (Button)findViewById(R.id.button_open_video);
 
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 preference.mode = Preference.CAMERA_MODE;
-                startActivity(intent);
+                startActivity(camera_intent);
             }
         });
 
@@ -65,7 +69,7 @@ public class KLTMainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 preference.mode = Preference.VIDEO_MODE;
-                startActivity(intent);
+                startActivity(video_intent);
             }
         });
     }
@@ -124,12 +128,16 @@ public class KLTMainActivity extends Activity {
         // which was a work around a bad design decision where front facing cameras wouldn't be accepted as hardware
         // which is an issue on tablets with only front facing cameras
         if( specs.size() == 0 ) {
+            // if the device does not have a camera, set the mode to VIDEO_MODE and disable open camera
+            // button
             preference.mode = Preference.VIDEO_MODE;
+            button_camera.setEnabled(false);
             dialogNoCamera();
         }
-
         else {
+            // if the device has a camera, set the mode to CAMERA_MODE
             preference.mode = Preference.CAMERA_MODE;
+
             // select a front facing camera as the default
             for (int i = 0; i < specs.size(); i++) {
                 CameraSpecs c = specs.get(i);
@@ -154,7 +162,7 @@ public class KLTMainActivity extends Activity {
 
     private void dialogNoCamera() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your device has no cameras! You can only local video!")
+        builder.setMessage("Your device has no cameras, setting the mode into video mode!")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

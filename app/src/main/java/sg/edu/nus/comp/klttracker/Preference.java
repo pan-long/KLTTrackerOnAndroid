@@ -6,7 +6,7 @@ import boofcv.struct.calib.IntrinsicParameters;
  * @author Peter Abeles
  */
 public class Preference {
-    // mode for KLT Tracking, currently support for camera mode and video mode
+    // currently we support two modes, for camera and local video
     static final int CAMERA_MODE = 0;
     static final int VIDEO_MODE = 1;
 
