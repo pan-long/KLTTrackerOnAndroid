@@ -142,7 +142,7 @@ public abstract class VideoRenderProcessing<T extends ImageBase> extends Thread 
 				else if( imageType.getDataType() == ImageDataType.F32)
 					ConvertNV21.nv21ToMsRgb_F32(bytes, image.width, image.height, (MultiSpectral) image);
 				else
-					throw new RuntimeException("Oh Crap");
+					throw new RuntimeException("Unexpected image type: "+imageType);
 			} else {
 				throw new RuntimeException("Unexpected image type: "+imageType);
 			}
