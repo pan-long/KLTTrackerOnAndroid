@@ -88,14 +88,14 @@ public class KLTLocalVideoDisplayActivity extends Activity{
 
     protected class DrawingRenderer implements GLSurfaceView.Renderer {
         private MediaMetadataRetriever mediaMetadataRetriever;
-        private int video_heigh;
+        private int video_height;
         private int video_width;
         private int offset;
 
         public DrawingRenderer(String filename, int offset) {
             mediaMetadataRetriever = new MediaMetadataRetriever();
             mediaMetadataRetriever.setDataSource(filename);
-            video_heigh = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+            video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
             video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
 
             this.offset = offset;
