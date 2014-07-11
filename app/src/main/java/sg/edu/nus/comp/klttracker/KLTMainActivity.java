@@ -51,9 +51,20 @@ public class KLTMainActivity extends Activity {
 //        startActivity(intent);
 
         final Button button_camera = (Button)findViewById(R.id.button_open_camera);
+        final Button button_video = (Button)findViewById(R.id.button_open_video);
+
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                preference.mode = Preference.CAMERA_MODE;
+                startActivity(intent);
+            }
+        });
+
+        button_video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preference.mode = Preference.VIDEO_MODE;
                 startActivity(intent);
             }
         });
