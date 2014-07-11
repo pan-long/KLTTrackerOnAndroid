@@ -1,9 +1,7 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
@@ -19,11 +17,9 @@ import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
 import boofcv.abst.feature.tracker.PointTrack;
 import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.android.ConvertBitmap;
-import boofcv.android.gui.VideoRenderProcessing;
 import boofcv.core.image.GConvertImage;
 import boofcv.factory.feature.tracker.FactoryPointTracker;
 import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageType;
 import boofcv.struct.image.ImageUInt8;
 import boofcv.struct.image.MultiSpectral;
 import georegression.struct.point.Point2D_F64;
