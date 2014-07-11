@@ -50,7 +50,8 @@ public class KLTMainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_klt_main);
 
-        final Intent intent = new Intent(this, KLTDisplayActivity.class);
+        final Intent camera_intent = new Intent(this, KLTDisplayActivity.class);
+        final Intent video_intent = new Intent(this, KLTLocalVideoDisplayActivity.class);
 //        startActivity(intent);
 
         button_camera = (Button)findViewById(R.id.button_open_camera);
@@ -60,7 +61,7 @@ public class KLTMainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 preference.mode = Preference.CAMERA_MODE;
-                startActivity(intent);
+                startActivity(camera_intent);
             }
         });
 
@@ -68,7 +69,7 @@ public class KLTMainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 preference.mode = Preference.VIDEO_MODE;
-                startActivity(intent);
+                startActivity(video_intent);
             }
         });
     }
