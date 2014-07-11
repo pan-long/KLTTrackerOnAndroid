@@ -1,9 +1,13 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.ConfigurationInfo;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
+import android.media.MediaMetadataRetriever;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
@@ -16,16 +20,16 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
+import boofcv.abst.feature.orientation.ConfigOrientation;
 import boofcv.abst.feature.tracker.PointTrack;
 import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.android.ConvertBitmap;
-import boofcv.android.gui.VideoRenderProcessing;
 import boofcv.core.image.GConvertImage;
 import boofcv.factory.feature.tracker.FactoryPointTracker;
 import boofcv.struct.image.ImageSInt16;
-import boofcv.struct.image.ImageType;
 import boofcv.struct.image.ImageUInt8;
 import boofcv.struct.image.MultiSpectral;
+import georegression.struct.point.Point2D_F32;
 import georegression.struct.point.Point2D_F64;
 
 /**
@@ -38,7 +42,13 @@ public class KLTLocalVideoDisplayActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         GLSurfaceView DrawingView = new GLSurfaceView(this);
-        DrawingView.setRenderer(new DrawingRenderer());
+
+        if (hasGLES20())
+            DrawingView.setEGLContextClientVersion(2);
+        else
+            dialogNoOpenGLES20();
+
+        DrawingView.setRenderer(new DrawingRenderer("sample_video.mp4", 50));
         setContentView(DrawingView);
     }
 
@@ -53,10 +63,43 @@ public class KLTLocalVideoDisplayActivity extends Activity{
         PointTracker<ImageUInt8> tracker =
                 FactoryPointTracker.klt(new int[]{2, 4}, config, 3, ImageUInt8.class, ImageSInt16.class);
 
-//        setProcessing(new PointTrackerDisplayActivity.PointProcessing(tracker));
+        PointProcessing pointProcessing = new PointProcessing(tracker);
+    }
+
+    // methods for opengles support
+    private boolean hasGLES20() {
+        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
+        return configurationInfo.reqGlEsVersion >= 0x20000;
+    }
+
+    private void dialogNoOpenGLES20() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Your device does not support OpenGLES2.0!")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        System.exit(0);
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     protected class DrawingRenderer implements GLSurfaceView.Renderer {
+        private MediaMetadataRetriever mediaMetadataRetriever;
+        private int video_heigh;
+        private int video_width;
+        private int offset;
+
+        public DrawingRenderer(String filename, int offset) {
+            mediaMetadataRetriever = new MediaMetadataRetriever();
+            mediaMetadataRetriever.setDataSource(filename);
+            video_heigh = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+            video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+
+            this.offset = offset;
+        }
 
         @Override
         public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
@@ -171,6 +214,18 @@ public class KLTLocalVideoDisplayActivity extends Activity{
             }
 
             tick++;
+        }
+
+        public FastQueue<Point2D_F64> getTrackSrc() {
+            return trackSrc;
+        }
+
+        public FastQueue<Point2D_F64> getTrackDst() {
+            return trackDst;
+        }
+
+        public FastQueue<Point2D_F64> getTrackSpawn() {
+            return trackSpawn;
         }
     }
 
