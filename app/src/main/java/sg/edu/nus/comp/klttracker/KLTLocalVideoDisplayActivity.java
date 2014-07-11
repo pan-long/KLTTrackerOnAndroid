@@ -107,7 +107,7 @@ public class KLTLocalVideoDisplayActivity extends Activity{
         }
 
         @Override
-        public void onSurfaceChanged(GL10 gl10, int i, int i2) {
+        public void onSurfaceChanged(GL10 gl10, int width, int hight) {
 
         }
 
