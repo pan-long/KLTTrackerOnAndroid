@@ -20,7 +20,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
-import boofcv.abst.feature.orientation.ConfigOrientation;
 import boofcv.abst.feature.tracker.PointTrack;
 import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.android.ConvertBitmap;
@@ -29,7 +28,6 @@ import boofcv.factory.feature.tracker.FactoryPointTracker;
 import boofcv.struct.image.ImageSInt16;
 import boofcv.struct.image.ImageUInt8;
 import boofcv.struct.image.MultiSpectral;
-import georegression.struct.point.Point2D_F32;
 import georegression.struct.point.Point2D_F64;
 
 /**
