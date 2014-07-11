@@ -35,6 +35,9 @@ public class KLTMainActivity extends Activity {
     // camera parameters.
     public static boolean changedPreferences = false;
 
+    private Button button_camera;
+    private Button button_video;
+
     public KLTMainActivity() {
         loadCameraSpecs();
     }
@@ -50,8 +53,8 @@ public class KLTMainActivity extends Activity {
         final Intent intent = new Intent(this, KLTDisplayActivity.class);
 //        startActivity(intent);
 
-        final Button button_camera = (Button)findViewById(R.id.button_open_camera);
-        final Button button_video = (Button)findViewById(R.id.button_open_video);
+        button_camera = (Button)findViewById(R.id.button_open_camera);
+        button_video = (Button)findViewById(R.id.button_open_video);
 
         button_camera.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,24 +127,33 @@ public class KLTMainActivity extends Activity {
         // which was a work around a bad design decision where front facing cameras wouldn't be accepted as hardware
         // which is an issue on tablets with only front facing cameras
         if( specs.size() == 0 ) {
+            // if the device does not have a camera, set the mode to VIDEO_MODE and disable open camera
+            // button
+            preference.mode = Preference.VIDEO_MODE;
+            button_camera.setEnabled(false);
             dialogNoCamera();
         }
-        // select a front facing camera as the default
-        for (int i = 0; i < specs.size(); i++) {
-            CameraSpecs c = specs.get(i);
+        else {
+            // if the device has a camera, set the mode to CAMERA_MODE
+            preference.mode = Preference.CAMERA_MODE;
 
-            if( c.info.facing == Camera.CameraInfo.CAMERA_FACING_BACK ) {
-                preference.cameraId = i;
-                break;
-            } else {
-                // default to a front facing camera if a back facing one can't be found
-                preference.cameraId = i;
+            // select a front facing camera as the default
+            for (int i = 0; i < specs.size(); i++) {
+                CameraSpecs c = specs.get(i);
+
+                if (c.info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                    preference.cameraId = i;
+                    break;
+                } else {
+                    // default to a front facing camera if a back facing one can't be found
+                    preference.cameraId = i;
+                }
             }
-        }
 
-        CameraSpecs camera = specs.get(preference.cameraId);
-        preference.preview = UtilVarious.closest(camera.sizePreview,320,240);
-        preference.picture = UtilVarious.closest(camera.sizePicture,640,480);
+            CameraSpecs camera = specs.get(preference.cameraId);
+            preference.preview = UtilVarious.closest(camera.sizePreview, 320, 240);
+            preference.picture = UtilVarious.closest(camera.sizePicture, 640, 480);
+        }
 
         // see if there are any intrinsic parameters to load
         loadIntrinsic();
@@ -149,11 +161,10 @@ public class KLTMainActivity extends Activity {
 
     private void dialogNoCamera() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your device has no cameras!")
+        builder.setMessage("Your device has no cameras, setting the mode into video mode!")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        System.exit(0);
                     }
                 });
         AlertDialog alert = builder.create();
