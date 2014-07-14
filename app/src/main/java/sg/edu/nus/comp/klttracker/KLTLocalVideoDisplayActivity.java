@@ -37,6 +37,7 @@ import georegression.struct.point.Point2D_F64;
  */
 public class KLTLocalVideoDisplayActivity extends Activity {
     protected final Object lockGui = new Object();
+    protected PointProcessing pointProcessing;
 
     private boolean videoIsPaused;
 
@@ -68,7 +69,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         PointTracker<ImageUInt8> tracker =
                 FactoryPointTracker.klt(new int[]{2, 4}, config, 3, ImageUInt8.class, ImageSInt16.class);
 
-        PointProcessing pointProcessing = new PointProcessing(tracker);
+        pointProcessing = new PointProcessing(tracker);
     }
 
     // methods for opengles support
@@ -97,6 +98,10 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         private int mHeight;
         private int video_width;
         private int mWidth;
+        private int offset;
+        private byte[] storage;
+        private int previousTime;
+        private int currentTime;
         private long offset;
         private long previousTime;
         private long currentTime;
@@ -132,7 +137,12 @@ public class KLTLocalVideoDisplayActivity extends Activity {
 
         @Override
         public void onDrawFrame(GL10 gl10) {
+            Bitmap frame = mediaMetadataRetriever.getFrameAtTime(offset);
+            storage = ConvertBitmap.declareStorage(frame, storage);
+            ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+            ConvertBitmap.bitmapToGray(frame, gray, storage);
 
+            pointProcessing.process(gray);
         }
     }
 
@@ -210,7 +220,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
 
             synchronized (lockGui) {
                 //ConvertBitmap.grayToBitmap(gray,bitmap,storage);
-//                ConvertBitmap.multiToBitmap(color, bitmap, storage);
+                //ConvertBitmap.multiToBitmap(color, bitmap, storage);
 
                 trackSrc.reset();
                 trackDst.reset();
