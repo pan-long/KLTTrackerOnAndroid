@@ -55,7 +55,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         else
             dialogNoOpenGLES20();
 
-        DrawingView.setRenderer(new DrawingRenderer("/mnt/sdcard/Video/test.mp4", 50));
+        DrawingView.setRenderer(new DrawingRenderer("/sdcard/Video/test.mp4", 50));
         setContentView(DrawingView);
     }
 
