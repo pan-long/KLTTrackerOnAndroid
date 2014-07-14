@@ -104,10 +104,10 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         private long previousTime;
         private long currentTime;
 
-        public DrawingRenderer(String filename, long offset) {
+        public DrawingRenderer(String filePath, long offset) {
             mediaMetadataRetriever = new MediaMetadataRetriever();
 
-            mediaMetadataRetriever.setDataSource(filename);
+            mediaMetadataRetriever.setDataSource(filePath);
 
             video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
             video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
