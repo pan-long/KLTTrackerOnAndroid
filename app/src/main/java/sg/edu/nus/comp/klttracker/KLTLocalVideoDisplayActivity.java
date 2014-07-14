@@ -98,10 +98,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         private int mHeight;
         private int video_width;
         private int mWidth;
-        private int offset;
         private byte[] storage;
-        private int previousTime;
-        private int currentTime;
         private long offset;
         private long previousTime;
         private long currentTime;
