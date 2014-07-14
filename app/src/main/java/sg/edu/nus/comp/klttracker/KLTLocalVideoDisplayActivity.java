@@ -107,11 +107,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         public DrawingRenderer(String filename, long offset) {
             mediaMetadataRetriever = new MediaMetadataRetriever();
 
-            try {
-                mediaMetadataRetriever.setDataSource(filename);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            mediaMetadataRetriever.setDataSource(filename);
 
             video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
             video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
