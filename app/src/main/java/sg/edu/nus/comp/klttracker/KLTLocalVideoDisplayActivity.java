@@ -116,7 +116,16 @@ public class KLTLocalVideoDisplayActivity extends Activity {
             Thread thread = new Thread() {
                 @Override
                 public void run() {
-                    
+                    if (!videoIsPaused) {
+                        currentTime += offset;
+
+
+                        try {
+                            sleep(offset / 1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             };
             thread.start();
