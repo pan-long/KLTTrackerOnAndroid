@@ -10,6 +10,8 @@ import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 
 import org.ddogleg.struct.FastQueue;
 
@@ -39,6 +41,9 @@ public class KLTLocalVideoDisplayActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+
         GLSurfaceView DrawingView = new GLSurfaceView(this);
 
         if (hasGLES20())
