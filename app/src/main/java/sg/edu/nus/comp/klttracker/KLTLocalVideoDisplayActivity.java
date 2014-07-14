@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
@@ -46,6 +47,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         GLSurfaceView DrawingView = new GLSurfaceView(this);
 
@@ -99,7 +101,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         private int video_width;
         private int mWidth;
         private byte[] storage;
-        private long offset;
+        private long mOffset;
         private long previousTime;
         private long currentTime;
 
@@ -109,7 +111,7 @@ public class KLTLocalVideoDisplayActivity extends Activity {
             video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
             video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
 
-            this.offset = offset;
+            this.mOffset = offset;
 
             previousTime = currentTime = 0;
 
@@ -117,11 +119,11 @@ public class KLTLocalVideoDisplayActivity extends Activity {
                 @Override
                 public void run() {
                     if (!videoIsPaused) {
-                        currentTime += offset;
+                        currentTime += mOffset;
 
 
                         try {
-                            sleep(offset / 1000);
+                            sleep(mOffset / 1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -143,12 +145,16 @@ public class KLTLocalVideoDisplayActivity extends Activity {
 
         @Override
         public void onDrawFrame(GL10 gl10) {
-            Bitmap frame = mediaMetadataRetriever.getFrameAtTime(offset);
-            storage = ConvertBitmap.declareStorage(frame, storage);
-            ImageUInt8 gray = new ImageUInt8(video_width, video_height);
-            ConvertBitmap.bitmapToGray(frame, gray, storage);
+            if (currentTime > previousTime) {
+                Bitmap frame = mediaMetadataRetriever.getFrameAtTime(mOffset);
+                storage = ConvertBitmap.declareStorage(frame, storage);
+                ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+                ConvertBitmap.bitmapToGray(frame, gray, storage);
 
-            pointProcessing.process(gray);
+                pointProcessing.process(gray);
+
+                previousTime = currentTime;
+            }
         }
     }
 
