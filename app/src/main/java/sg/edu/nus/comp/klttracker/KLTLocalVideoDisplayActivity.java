@@ -9,7 +9,9 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
+import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.opengl.GLUtils;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
@@ -118,14 +120,16 @@ public class KLTLocalVideoDisplayActivity extends Activity {
             Thread thread = new Thread() {
                 @Override
                 public void run() {
-                    if (!videoIsPaused) {
-                        currentTime += mOffset;
+                    while (true) {
+                        if (!videoIsPaused) {
+                            currentTime += mOffset;
 
 
-                        try {
-                            sleep(mOffset / 1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            try {
+                                sleep(mOffset / 1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }
@@ -134,17 +138,17 @@ public class KLTLocalVideoDisplayActivity extends Activity {
         }
 
         @Override
-        public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
+        public void onSurfaceCreated(GL10 notUsed, EGLConfig eglConfig) {
         }
 
         @Override
-        public void onSurfaceChanged(GL10 gl10, int width, int height) {
+        public void onSurfaceChanged(GL10 notUsed, int width, int height) {
             mHeight = height;
             mWidth = width;
         }
 
         @Override
-        public void onDrawFrame(GL10 gl10) {
+        public void onDrawFrame(GL10 notUsed) {
             if (currentTime > previousTime) {
                 Bitmap frame = mediaMetadataRetriever.getFrameAtTime(mOffset);
                 storage = ConvertBitmap.declareStorage(frame, storage);
