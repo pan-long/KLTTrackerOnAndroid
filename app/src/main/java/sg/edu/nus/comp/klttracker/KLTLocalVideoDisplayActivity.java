@@ -28,7 +28,7 @@ import georegression.struct.point.Point2D_F64;
  */
 public class KLTLocalVideoDisplayActivity extends Activity {
     protected final Object lockGui = new Object();
-    protected PointProcessing pointProcessing;
+    public static PointProcessing pointProcessing;
 
     public static boolean videoIsPaused = false;
 
@@ -36,17 +36,21 @@ public class KLTLocalVideoDisplayActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        GLSurfaceView DrawingView = new GLSurfaceView(this);
+        GLSurfaceView drawingView = new GLSurfaceView(this);
 
 //        if (hasGLES20())
 //            DrawingView.setEGLContextClientVersion(2);
         if (hasGLES10())
-            DrawingView.setEGLContextClientVersion(1);
+            drawingView.setEGLContextClientVersion(1);
         else
-            dialogNoOpenGLES20();
+            dialogNoOpenGLES10();
 
-        DrawingView.setRenderer(new DrawingRenderer("/sdcard/Video/test.mp4", 50000));
-        setContentView(DrawingView);
+        onResume();
+
+        drawingView.setRenderer(new DrawingRenderer("/sdcard/Video/test.mp4", 50000));
+//        drawingView.setRenderMode(GLSurfaceView.RENDERMODE_WHEN_DIRTY);
+
+        setContentView(drawingView);
     }
 
     @Override
@@ -79,6 +83,19 @@ public class KLTLocalVideoDisplayActivity extends Activity {
     private void dialogNoOpenGLES20() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Your device does not support OpenGLES2.0!")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        System.exit(0);
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
+
+    private void dialogNoOpenGLES10() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Your device does not support OpenGLES1.0!")
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
