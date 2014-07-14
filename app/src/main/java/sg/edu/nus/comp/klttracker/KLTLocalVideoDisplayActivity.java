@@ -47,16 +47,6 @@ public class KLTLocalVideoDisplayActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        GLSurfaceView DrawingView = new GLSurfaceView(this);
-
-        if (hasGLES20())
-            DrawingView.setEGLContextClientVersion(2);
-        else
-            dialogNoOpenGLES20();
-
-        DrawingView.setRenderer(new DrawingRenderer("/sdcard/Video/test.mp4", 50));
-        setContentView(DrawingView);
     }
 
     @Override
@@ -72,94 +62,74 @@ public class KLTLocalVideoDisplayActivity extends Activity {
 
         pointProcessing = new PointProcessing(tracker);
     }
-
-    // methods for opengles support
-    private boolean hasGLES20() {
-        ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
-        return configurationInfo.reqGlEsVersion >= 0x20000;
-    }
-
-    private void dialogNoOpenGLES20() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Your device does not support OpenGLES2.0!")
-                .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        System.exit(0);
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
-    protected class DrawingRenderer implements GLSurfaceView.Renderer {
-        private MediaMetadataRetriever mediaMetadataRetriever;
-        private int video_height;
-        private int mHeight;
-        private int video_width;
-        private int mWidth;
-        private byte[] storage;
-        private long mOffset;
-        private long previousTime;
-        private long currentTime;
-
-        public DrawingRenderer(String filePath, long offset) {
-            mediaMetadataRetriever = new MediaMetadataRetriever();
-
-            mediaMetadataRetriever.setDataSource(filePath);
-
-            video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
-            video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
-
-            this.mOffset = offset;
-
-            previousTime = currentTime = 0;
-
-            Thread thread = new Thread() {
-                @Override
-                public void run() {
-                    while (true) {
-                        if (!videoIsPaused) {
-                            currentTime += mOffset;
-
-
-                            try {
-                                sleep(mOffset / 1000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                }
-            };
-            thread.start();
-        }
-
-        @Override
-        public void onSurfaceCreated(GL10 notUsed, EGLConfig eglConfig) {
-        }
-
-        @Override
-        public void onSurfaceChanged(GL10 notUsed, int width, int height) {
-            mHeight = height;
-            mWidth = width;
-        }
-
-        @Override
-        public void onDrawFrame(GL10 notUsed) {
-            if (currentTime > previousTime) {
-                Bitmap frame = mediaMetadataRetriever.getFrameAtTime(mOffset);
-                storage = ConvertBitmap.declareStorage(frame, storage);
-                ImageUInt8 gray = new ImageUInt8(video_width, video_height);
-                ConvertBitmap.bitmapToGray(frame, gray, storage);
-
-                pointProcessing.process(gray);
-
-                previousTime = currentTime;
-            }
-        }
-    }
+//
+//    protected class DrawingRenderer implements GLSurfaceView.Renderer {
+//        private MediaMetadataRetriever mediaMetadataRetriever;
+//        private int video_height;
+//        private int mHeight;
+//        private int video_width;
+//        private int mWidth;
+//        private byte[] storage;
+//        private long mOffset;
+//        private long previousTime;
+//        private long currentTime;
+//
+//        public DrawingRenderer(String filePath, long offset) {
+//            mediaMetadataRetriever = new MediaMetadataRetriever();
+//
+//            mediaMetadataRetriever.setDataSource(filePath);
+//
+//            video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+//            video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+//
+//            this.mOffset = offset;
+//
+//            previousTime = currentTime = 0;
+//
+//            Thread thread = new Thread() {
+//                @Override
+//                public void run() {
+//                    while (true) {
+//                        if (!videoIsPaused) {
+//                            currentTime += mOffset;
+//
+//
+//                            try {
+//                                sleep(mOffset / 1000);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//                }
+//            };
+//            thread.start();
+//        }
+//
+//        @Override
+//        public void onSurfaceCreated(GL10 notUsed, EGLConfig eglConfig) {
+//        }
+//
+//        @Override
+//        public void onSurfaceChanged(GL10 notUsed, int width, int height) {
+//            mHeight = height;
+//            mWidth = width;
+//        }
+//
+//        @Override
+//        public void onDrawFrame(GL10 notUsed) {
+//            if (currentTime > previousTime) {
+//                Bitmap frame = mediaMetadataRetriever.getFrameAtTime(mOffset);
+//                storage = ConvertBitmap.declareStorage(frame, storage);
+//                ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+//                ConvertBitmap.bitmapToGray(frame, gray, storage);
+//
+//                pointProcessing.process(gray);
+//
+//                previousTime = currentTime;
+//            }
+//        }
+//    }
 
     protected class PointProcessing {
         PointTracker<ImageUInt8> tracker;
