@@ -28,7 +28,7 @@
         <activity android:name=".KLTLocalVideoDisplayActivity"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
-        
+
         <activity android:name=".PreferenceActivity" />
 
     </application>
