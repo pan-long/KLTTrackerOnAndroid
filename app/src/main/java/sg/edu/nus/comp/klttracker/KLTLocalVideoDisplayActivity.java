@@ -87,8 +87,12 @@ public class KLTLocalVideoDisplayActivity extends Activity{
     protected class DrawingRenderer implements GLSurfaceView.Renderer {
         private MediaMetadataRetriever mediaMetadataRetriever;
         private int video_height;
+        private int mHeight;
         private int video_width;
+        private int mWidth;
         private int offset;
+        private int previousTime;
+        private int currentTime;
 
         public DrawingRenderer(String filename, int offset) {
             mediaMetadataRetriever = new MediaMetadataRetriever();
@@ -97,16 +101,18 @@ public class KLTLocalVideoDisplayActivity extends Activity{
             video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
 
             this.offset = offset;
+
+            previousTime = currentTime = 0;
         }
 
         @Override
         public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {
-
         }
 
         @Override
-        public void onSurfaceChanged(GL10 gl10, int width, int hight) {
-
+        public void onSurfaceChanged(GL10 gl10, int width, int height) {
+            mHeight = height;
+            mWidth = width;
         }
 
         @Override
