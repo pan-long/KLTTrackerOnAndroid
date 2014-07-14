@@ -35,6 +35,7 @@ import georegression.struct.point.Point2D_F64;
  */
 public class KLTLocalVideoDisplayActivity extends Activity{
     protected final Object lockGui = new Object();
+    protected PointProcessing pointProcessing;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class KLTLocalVideoDisplayActivity extends Activity{
         PointTracker<ImageUInt8> tracker =
                 FactoryPointTracker.klt(new int[]{2, 4}, config, 3, ImageUInt8.class, ImageSInt16.class);
 
-        PointProcessing pointProcessing = new PointProcessing(tracker);
+        pointProcessing = new PointProcessing(tracker);
     }
 
     // methods for opengles support
@@ -89,6 +90,7 @@ public class KLTLocalVideoDisplayActivity extends Activity{
         private int video_height;
         private int video_width;
         private int offset;
+        private byte[] storage;
 
         public DrawingRenderer(String filename, int offset) {
             mediaMetadataRetriever = new MediaMetadataRetriever();
@@ -111,7 +113,12 @@ public class KLTLocalVideoDisplayActivity extends Activity{
 
         @Override
         public void onDrawFrame(GL10 gl10) {
+            Bitmap frame = mediaMetadataRetriever.getFrameAtTime(offset);
+            storage = ConvertBitmap.declareStorage(frame, storage);
+            ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+            ConvertBitmap.bitmapToGray(frame, gray, storage);
 
+            pointProcessing.process(gray);
         }
     }
 
@@ -140,9 +147,7 @@ public class KLTLocalVideoDisplayActivity extends Activity{
             this.tracker = tracker;
         }
 
-        protected void process(MultiSpectral<ImageUInt8> color) {
-            ImageUInt8 gray = new ImageUInt8(imageWidth, imageHeight);
-            GConvertImage.convert(color, gray);
+        protected void process(ImageUInt8 gray) {
             tracker.process(gray);
 
             // drop tracks which are no longer being used
@@ -189,7 +194,7 @@ public class KLTLocalVideoDisplayActivity extends Activity{
 
             synchronized ( lockGui ) {
                 //ConvertBitmap.grayToBitmap(gray,bitmap,storage);
-                ConvertBitmap.multiToBitmap(color, bitmap, storage);
+                //ConvertBitmap.multiToBitmap(color, bitmap, storage);
 
                 trackSrc.reset();
                 trackDst.reset();
