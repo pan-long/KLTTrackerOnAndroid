@@ -21,7 +21,6 @@ import georegression.struct.point.Point2D_F64;
  * Created by panlong on 16/7/14.
  */
 public class LocalVideoView extends VideoView {
-    private MediaMetadataRetriever mediaMetadataRetriever;
     private PointProcessing pointProcessing;
 
     private Paint paintLine = new Paint();
@@ -32,6 +31,7 @@ public class LocalVideoView extends VideoView {
     private FastQueue<Point2D_F64> trackDst;
     private FastQueue<Point2D_F64> trackSpawn;
 
+    private Canvas myCanvas;
     private Bitmap frameBitmap;
     private byte[] storage;
 
@@ -39,7 +39,8 @@ public class LocalVideoView extends VideoView {
         super(context, attrs);
         setWillNotDraw(false);
 
-        mediaMetadataRetriever = new MediaMetadataRetriever();
+        myCanvas = new Canvas();
+        myCanvas.setBitmap(frameBitmap);
 
         paintLine.setColor(Color.RED);
         paintLine.setStrokeWidth(1.5f);
@@ -55,16 +56,11 @@ public class LocalVideoView extends VideoView {
 
     public void setVideoSource(String videoSource) {
         setVideoPath(videoSource);
-        mediaMetadataRetriever.setDataSource(videoSource);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        int currentPosition = getCurrentPosition();
-//        Toast.makeText(getContext(),
-//                "Current Position: " + currentPosition + " (ms)",
-//                Toast.LENGTH_LONG).show();
-        frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000, MediaMetadataRetriever.OPTION_NEXT_SYNC);
+        super.draw(myCanvas);
 
         storage = ConvertBitmap.declareStorage(frameBitmap, storage);
         ImageUInt8 gray = new ImageUInt8(frameBitmap.getWidth(), frameBitmap.getHeight());
