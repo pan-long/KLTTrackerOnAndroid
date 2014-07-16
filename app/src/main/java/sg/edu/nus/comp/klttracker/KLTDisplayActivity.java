@@ -27,7 +27,7 @@ public class KLTDisplayActivity extends PointTrackerDisplayActivity{
         config.radius = 3;
 
         PointTracker<ImageUInt8> tracker =
-                FactoryPointTracker.klt(new int[]{2,4},config,3,ImageUInt8.class, ImageSInt16.class);
+                FactoryPointTracker.klt(new int[]{1, 2, 4},config,3,ImageUInt8.class, ImageSInt16.class);
 
         setProcessing(new PointProcessing(tracker));
     }
