@@ -42,8 +42,6 @@ public class KLTLocalVideoDisplayActivity extends Activity {
     protected final Object lockGui = new Object();
     protected PointProcessing pointProcessing;
 
-    private boolean videoIsPaused;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,74 +60,6 @@ public class KLTLocalVideoDisplayActivity extends Activity {
 
         pointProcessing = new PointProcessing(tracker);
     }
-//
-//    protected class DrawingRenderer implements GLSurfaceView.Renderer {
-//        private MediaMetadataRetriever mediaMetadataRetriever;
-//        private int video_height;
-//        private int mHeight;
-//        private int video_width;
-//        private int mWidth;
-//        private byte[] storage;
-//        private long mOffset;
-//        private long previousTime;
-//        private long currentTime;
-//
-//        public DrawingRenderer(String filePath, long offset) {
-//            mediaMetadataRetriever = new MediaMetadataRetriever();
-//
-//            mediaMetadataRetriever.setDataSource(filePath);
-//
-//            video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
-//            video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
-//
-//            this.mOffset = offset;
-//
-//            previousTime = currentTime = 0;
-//
-//            Thread thread = new Thread() {
-//                @Override
-//                public void run() {
-//                    while (true) {
-//                        if (!videoIsPaused) {
-//                            currentTime += mOffset;
-//
-//
-//                            try {
-//                                sleep(mOffset / 1000);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                    }
-//                }
-//            };
-//            thread.start();
-//        }
-//
-//        @Override
-//        public void onSurfaceCreated(GL10 notUsed, EGLConfig eglConfig) {
-//        }
-//
-//        @Override
-//        public void onSurfaceChanged(GL10 notUsed, int width, int height) {
-//            mHeight = height;
-//            mWidth = width;
-//        }
-//
-//        @Override
-//        public void onDrawFrame(GL10 notUsed) {
-//            if (currentTime > previousTime) {
-//                Bitmap frame = mediaMetadataRetriever.getFrameAtTime(mOffset);
-//                storage = ConvertBitmap.declareStorage(frame, storage);
-//                ImageUInt8 gray = new ImageUInt8(video_width, video_height);
-//                ConvertBitmap.bitmapToGray(frame, gray, storage);
-//
-//                pointProcessing.process(gray);
-//
-//                previousTime = currentTime;
-//            }
-//        }
-//    }
 
     protected class PointProcessing {
         PointTracker<ImageUInt8> tracker;
