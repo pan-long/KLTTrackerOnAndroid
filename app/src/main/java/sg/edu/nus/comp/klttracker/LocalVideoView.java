@@ -36,11 +36,22 @@ public class LocalVideoView extends VideoView {
     private Bitmap frameBitmap;
     private byte[] storage;
 
+    private int video_width;
+    private int video_height;
+    private int view_width;
+    private int view_height;
+
+    private float scaleX;
+    private float scaleY;
+
     public LocalVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWillNotDraw(false);
 
         mediaMetadataRetriever = new MediaMetadataRetriever();
+
+        video_width = this.getWidth();
+        video_height = this.getHeight();
 
         paintLine.setColor(Color.RED);
         paintLine.setStrokeWidth(1.5f);
@@ -65,6 +76,14 @@ public class LocalVideoView extends VideoView {
         thread.start();
     }
 
+    @Override
+    protected void onSizeChanged(int xNew, int yNew, int xOld, int yOld){
+        super.onSizeChanged(xNew, yNew, xOld, yOld);
+
+        view_width = xNew;
+        view_height = yNew;
+    }
+
     public void setProcessing(PointProcessing pointProcessing) {
         this.pointProcessing = pointProcessing;
     }
@@ -78,9 +97,14 @@ public class LocalVideoView extends VideoView {
     public void onDraw(Canvas canvas) {
         int currentPosition = getCurrentPosition();
         frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
+        video_height = frameBitmap.getHeight();
+        video_width = frameBitmap.getWidth();
+        scaleX = view_width / (float)video_width;
+        scaleY = view_height / (float)video_height;
 
         storage = ConvertBitmap.declareStorage(frameBitmap, storage);
-        ImageUInt8 gray = new ImageUInt8(frameBitmap.getWidth(), frameBitmap.getHeight());
+        ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+
         ConvertBitmap.bitmapToGray(frameBitmap, gray, storage);
         pointProcessing.process(gray);
 
@@ -96,13 +120,13 @@ public class LocalVideoView extends VideoView {
         for( int i = 0; i < trackSrc.size(); i++ ) {
             Point2D_F64 s = trackSrc.get(i);
             Point2D_F64 p = trackDst.get(i);
-            canvas.drawLine((int)s.x,(int)s.y,(int)p.x,(int)p.y,paintLine);
-            canvas.drawCircle((int)p.x,(int)p.y,2f, paintRed);
+            canvas.drawLine((int)s.x * scaleX,(int)s.y * scaleY,(int)p.x * scaleX,(int)p.y * scaleY,paintLine);
+            canvas.drawCircle((int)p.x * scaleX,(int)p.y * scaleY,2f, paintRed);
         }
 
         for( int i = 0; i < trackSpawn.size(); i++ ) {
             Point2D_F64 p = trackSpawn.get(i);
-            canvas.drawCircle((int)p.x,(int)p.y,3, paintBlue);
+            canvas.drawCircle((int)p.x * scaleX,(int)p.y * scaleY,3, paintBlue);
         }
     }
 }
