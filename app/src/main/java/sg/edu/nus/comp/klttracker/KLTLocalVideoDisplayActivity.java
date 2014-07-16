@@ -7,14 +7,21 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ConfigurationInfo;
+import android.drm.DrmErrorEvent;
+import android.drm.DrmManagerClient;
 import android.graphics.Bitmap;
 import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLUtils;
 import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.MediaController;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import org.ddogleg.struct.FastQueue;
 
@@ -38,13 +45,39 @@ import georegression.struct.point.Point2D_F64;
 /**
  * Created by a0105529 on 7/11/14.
  */
-public class KLTLocalVideoDisplayActivity extends Activity {
+public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlayer.OnErrorListener{
+    private final String videoSource = "/sdcard/Video/test.mp4";
+
     protected final Object lockGui = new Object();
     protected PointProcessing pointProcessing;
+    private MediaMetadataRetriever mediaMetadataRetriever;
+    private MediaController mediaController;
+    private VideoView videoView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.local_video_display_activity);
+
+        mediaMetadataRetriever = new MediaMetadataRetriever();
+        mediaMetadataRetriever.setDataSource(videoSource);
+
+        videoView = (VideoView) findViewById(R.id.videoView);
+        videoView.setVideoURI(Uri.parse(videoSource));
+        mediaController = new MediaController(this);
+        videoView.setMediaController(mediaController);
+
+        videoView.setOnErrorListener(this);
+
+        videoView.requestFocus();
+        videoView.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        
+        videoView.pause();
     }
 
     @Override
@@ -59,6 +92,17 @@ public class KLTLocalVideoDisplayActivity extends Activity {
                 FactoryPointTracker.klt(new int[]{2, 4}, config, 3, ImageUInt8.class, ImageSInt16.class);
 
         pointProcessing = new PointProcessing(tracker);
+
+        videoView.resume();
+    }
+
+    @Override
+    public boolean onError(MediaPlayer mediaPlayer, int what, int extra) {
+        Toast.makeText(KLTLocalVideoDisplayActivity.this,
+                "Error!!!",
+                Toast.LENGTH_LONG).show();
+
+        return true;
     }
 
     protected class PointProcessing {
