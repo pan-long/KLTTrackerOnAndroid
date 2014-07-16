@@ -36,8 +36,8 @@ public class LocalVideoView extends VideoView {
     private Bitmap frameBitmap;
     private byte[] storage;
 
-    private int video_width;
-    private int video_height;
+    private static final int VIDEO_WIDTH = 320;
+    private static final int VIDEO_HEIGHT = 240;
     private int view_width;
     private int view_height;
 
@@ -49,9 +49,6 @@ public class LocalVideoView extends VideoView {
         setWillNotDraw(false);
 
         mediaMetadataRetriever = new MediaMetadataRetriever();
-
-        video_width = this.getWidth();
-        video_height = this.getHeight();
 
         paintLine.setColor(Color.RED);
         paintLine.setStrokeWidth(1.5f);
@@ -66,7 +63,7 @@ public class LocalVideoView extends VideoView {
                 while (true) {
                     LocalVideoView.this.postInvalidate();
                     try {
-                        sleep(20);
+                        sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -82,6 +79,10 @@ public class LocalVideoView extends VideoView {
 
         view_width = xNew;
         view_height = yNew;
+
+        scaleX = view_width / (float)VIDEO_WIDTH;
+        scaleY = view_height / (float)VIDEO_HEIGHT;
+
     }
 
     public void setProcessing(PointProcessing pointProcessing) {
@@ -91,23 +92,31 @@ public class LocalVideoView extends VideoView {
     public void setVideoSource(String videoSource) {
         setVideoPath(videoSource);
         mediaMetadataRetriever.setDataSource(videoSource);
+
+//        video_height = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_HEIGHT));
+//        video_width = Integer.parseInt(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH));
+        scaleX = view_width / (float)VIDEO_WIDTH;
+        scaleY = view_height / (float)VIDEO_HEIGHT;
+
     }
 
+    int number = 0;
     @Override
     public void onDraw(Canvas canvas) {
+        System.out.println(number + ": " + System.currentTimeMillis());
         int currentPosition = getCurrentPosition();
         frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
 
-        video_height = frameBitmap.getHeight();
-        video_width = frameBitmap.getWidth();
-        scaleX = view_width / (float)video_width;
-        scaleY = view_height / (float)video_height;
+        Bitmap scaledFrameBitmap = Bitmap.createScaledBitmap(frameBitmap, VIDEO_WIDTH, VIDEO_HEIGHT, false);
+        storage = ConvertBitmap.declareStorage(scaledFrameBitmap, storage);
+        ImageUInt8 gray = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
 
-        storage = ConvertBitmap.declareStorage(frameBitmap, storage);
-        ImageUInt8 gray = new ImageUInt8(video_width, video_height);
+        ConvertBitmap.bitmapToGray(scaledFrameBitmap, gray, storage);
+        System.out.println(number + ": " + System.currentTimeMillis());
+        System.out.println(number + ": " + System.currentTimeMillis());
 
-        ConvertBitmap.bitmapToGray(frameBitmap, gray, storage);
         pointProcessing.process(gray);
+        System.out.println(number + ": " + System.currentTimeMillis());
 
         trackSrc = pointProcessing.getTrackSrc();
         trackDst = pointProcessing.getTrackDst();
@@ -115,6 +124,10 @@ public class LocalVideoView extends VideoView {
 
         super.onDraw(canvas);
         drawTracking(canvas);
+
+        frameBitmap.recycle();
+        scaledFrameBitmap.recycle();
+        number ++;
     }
 
     protected void drawTracking(Canvas canvas) {
