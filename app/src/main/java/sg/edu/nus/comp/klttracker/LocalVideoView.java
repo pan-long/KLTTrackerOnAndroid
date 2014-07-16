@@ -61,10 +61,10 @@ public class LocalVideoView extends VideoView {
     @Override
     public void onDraw(Canvas canvas) {
         int currentPosition = getCurrentPosition();
-        Toast.makeText(getContext(),
-                "Current Position: " + currentPosition + " (ms)",
-                Toast.LENGTH_LONG).show();
-        frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
+//        Toast.makeText(getContext(),
+//                "Current Position: " + currentPosition + " (ms)",
+//                Toast.LENGTH_LONG).show();
+        frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000, MediaMetadataRetriever.OPTION_NEXT_SYNC);
 
         storage = ConvertBitmap.declareStorage(frameBitmap, storage);
         ImageUInt8 gray = new ImageUInt8(frameBitmap.getWidth(), frameBitmap.getHeight());
@@ -74,8 +74,6 @@ public class LocalVideoView extends VideoView {
         trackSrc = pointProcessing.getTrackSrc();
         trackDst = pointProcessing.getTrackDst();
         trackSpawn = pointProcessing.getTrackSpawn();
-
-        System.out.println(trackSrc.size());
 
         super.onDraw(canvas);
         drawTracking(canvas);
