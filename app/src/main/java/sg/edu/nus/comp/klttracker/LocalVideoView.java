@@ -22,6 +22,7 @@ import georegression.struct.point.Point2D_F64;
  */
 public class LocalVideoView extends VideoView {
     private PointProcessing pointProcessing;
+    private MediaMetadataRetriever mediaMetadataRetriever;
 
     private Paint paintLine = new Paint();
     private Paint paintRed = new Paint();
@@ -31,7 +32,6 @@ public class LocalVideoView extends VideoView {
     private FastQueue<Point2D_F64> trackDst;
     private FastQueue<Point2D_F64> trackSpawn;
 
-    private Canvas myCanvas;
     private Bitmap frameBitmap;
     private byte[] storage;
 
@@ -39,8 +39,7 @@ public class LocalVideoView extends VideoView {
         super(context, attrs);
         setWillNotDraw(false);
 
-        myCanvas = new Canvas();
-        myCanvas.setBitmap(frameBitmap);
+        mediaMetadataRetriever = new MediaMetadataRetriever();
 
         paintLine.setColor(Color.RED);
         paintLine.setStrokeWidth(1.5f);
@@ -48,6 +47,20 @@ public class LocalVideoView extends VideoView {
         paintRed.setStyle(Paint.Style.FILL);
         paintBlue.setColor(Color.BLUE);
         paintBlue.setStyle(Paint.Style.FILL);
+
+        Thread thread = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    invalidate();
+                    try {
+                        sleep(50000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
     }
 
     public void setProcessing(PointProcessing pointProcessing) {
@@ -56,11 +69,13 @@ public class LocalVideoView extends VideoView {
 
     public void setVideoSource(String videoSource) {
         setVideoPath(videoSource);
+        mediaMetadataRetriever.setDataSource(videoSource);
     }
 
     @Override
     public void onDraw(Canvas canvas) {
-        super.draw(myCanvas);
+        int currentPosition = getCurrentPosition();
+        frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
 
         storage = ConvertBitmap.declareStorage(frameBitmap, storage);
         ImageUInt8 gray = new ImageUInt8(frameBitmap.getWidth(), frameBitmap.getHeight());
@@ -73,8 +88,6 @@ public class LocalVideoView extends VideoView {
 
         super.onDraw(canvas);
         drawTracking(canvas);
-
-        invalidate();
     }
 
     protected void drawTracking(Canvas canvas) {
