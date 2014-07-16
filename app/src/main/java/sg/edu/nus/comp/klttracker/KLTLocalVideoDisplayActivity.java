@@ -42,12 +42,6 @@ public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlaye
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        videoView.pause();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         ConfigGeneralDetector config = new ConfigGeneralDetector();

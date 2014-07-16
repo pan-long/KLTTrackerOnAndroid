@@ -66,7 +66,7 @@ public class LocalVideoView extends VideoView {
                 while (true) {
                     LocalVideoView.this.postInvalidate();
                     try {
-                        sleep(50);
+                        sleep(20);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -97,6 +97,7 @@ public class LocalVideoView extends VideoView {
     public void onDraw(Canvas canvas) {
         int currentPosition = getCurrentPosition();
         frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
+
         video_height = frameBitmap.getHeight();
         video_width = frameBitmap.getWidth();
         scaleX = view_width / (float)video_width;
