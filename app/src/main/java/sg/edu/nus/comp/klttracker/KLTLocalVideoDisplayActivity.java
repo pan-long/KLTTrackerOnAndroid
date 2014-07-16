@@ -21,9 +21,7 @@ import georegression.struct.point.Point2D_F64;
 public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlayer.OnErrorListener{
     private final String videoSource = "/sdcard/Video/test.mp4";
 
-    protected final Object lockGui = new Object();
     protected PointProcessing pointProcessing;
-    private MediaMetadataRetriever mediaMetadataRetriever;
     private MediaController mediaController;
     private LocalVideoView videoView;
 
@@ -32,11 +30,8 @@ public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlaye
         super.onCreate(savedInstanceState);
         setContentView(R.layout.local_video_display_activity);
 
-        mediaMetadataRetriever = new MediaMetadataRetriever();
-        mediaMetadataRetriever.setDataSource(videoSource);
-
         videoView = (LocalVideoView) findViewById(R.id.videoView);
-        videoView.setVideoURI(Uri.parse(videoSource));
+        videoView.setVideoSource(videoSource);
         mediaController = new MediaController(this);
         videoView.setMediaController(mediaController);
 
