@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.MediaMetadataRetriever;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -52,15 +53,16 @@ public class LocalVideoView extends VideoView {
             @Override
             public void run() {
                 while (true) {
-                    invalidate();
+                    LocalVideoView.this.postInvalidate();
                     try {
-                        sleep(50000);
+                        sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
             }
         };
+        thread.start();
     }
 
     public void setProcessing(PointProcessing pointProcessing) {
