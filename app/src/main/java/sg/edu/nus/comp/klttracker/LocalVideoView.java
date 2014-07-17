@@ -7,7 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.MediaMetadataRetriever;
 import android.util.AttributeSet;
-import android.widget.VideoView;
+import android.view.SurfaceView;
 
 import org.ddogleg.struct.FastQueue;
 
@@ -18,9 +18,10 @@ import georegression.struct.point.Point2D_F64;
 /**
  * Created by panlong on 16/7/14.
  */
-public class LocalVideoView extends VideoView{
+public class LocalVideoView extends SurfaceView {
     private PointProcessing pointProcessing;
     private MediaMetadataRetriever mediaMetadataRetriever;
+    private Bitmap frameBitmap;
 
     private Paint paintLine = new Paint();
     private Paint paintRed = new Paint();
@@ -30,18 +31,25 @@ public class LocalVideoView extends VideoView{
     private FastQueue<Point2D_F64> trackDst;
     private FastQueue<Point2D_F64> trackSpawn;
 
-    private static final int VIDEO_WIDTH = 320;
-    private static final int VIDEO_HEIGHT = 240;
+    private static final int VIDEO_WIDTH = 32;
+    private static final int VIDEO_HEIGHT = 24;
     private int view_width;
     private int view_height;
+    private long startTime;
 
     private float scaleX;
     private float scaleY;
 
+    private boolean isPlaying = false;
+    private boolean canBeProcessed = false;
+
     ImageUInt8 image;
     ImageUInt8 image2;
 
+    byte[] storage;
+
     private Object lockConvert = new Object();
+    private Object lockGui = new Object();
 
     public LocalVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -59,22 +67,26 @@ public class LocalVideoView extends VideoView{
         image = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
         image2 = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
 
+        startTime = System.currentTimeMillis();
+        isPlaying = true;
+
         Thread threadConvert = new Thread() {
             @Override
             public void run() {
                 while (true) {
                     if (isPlaying()) {
-                        int currentPosition = getCurrentPosition();
-                        Bitmap scaledFrameBitmap = Bitmap.createScaledBitmap(mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000),
-                                VIDEO_WIDTH, VIDEO_HEIGHT, false);
-                        byte[] storage = null;
-                        storage = ConvertBitmap.declareStorage(scaledFrameBitmap, storage);
+                        long currentPosition = getCurrentPosition();
 
-                        synchronized (lockConvert) {
-                            ConvertBitmap.bitmapToGray(scaledFrameBitmap, image, storage);
+                        synchronized (lockGui) {
+                            frameBitmap = Bitmap.createScaledBitmap(mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000),
+                                    VIDEO_WIDTH, VIDEO_HEIGHT, false);
+                            storage = ConvertBitmap.declareStorage(frameBitmap, storage);
                         }
 
-                        scaledFrameBitmap.recycle();
+                        synchronized (lockConvert) {
+                            ConvertBitmap.bitmapToGray(frameBitmap, image, storage);
+                            canBeProcessed = true;
+                        }
                     } else {
                         try {
                             sleep(10);
@@ -90,8 +102,7 @@ public class LocalVideoView extends VideoView{
             @Override
             public void run() {
                 while (true) {
-                    if (isPlaying()) {
-                        System.out.println(System.currentTimeMillis());
+                    if (isPlaying() && canBeProcessed) {
                         synchronized (lockConvert) {
                             ImageUInt8 tmp = image;
                             image = image2;
@@ -99,8 +110,6 @@ public class LocalVideoView extends VideoView{
                         }
                         pointProcessing.process(image2);
                         LocalVideoView.this.postInvalidate();
-                        System.out.println(System.currentTimeMillis());
-                        System.out.println(" ");
                     } else {
                         try {
                             sleep(10);
@@ -133,7 +142,6 @@ public class LocalVideoView extends VideoView{
     }
 
     public void setVideoSource(String videoSource) {
-        setVideoPath(videoSource);
         mediaMetadataRetriever.setDataSource(videoSource);
 
         scaleX = view_width / (float)VIDEO_WIDTH;
@@ -142,12 +150,20 @@ public class LocalVideoView extends VideoView{
 
     @Override
     public void onDraw(Canvas canvas) {
-        trackSrc = pointProcessing.getTrackSrc();
-        trackDst = pointProcessing.getTrackDst();
-        trackSpawn = pointProcessing.getTrackSpawn();
+        if (isPlaying()) {
+            synchronized (lockGui) {
+                canvas.scale(scaleX, scaleY);
+                canvas.drawBitmap(frameBitmap, 0, 0, null);
+                frameBitmap.recycle();
+            }
 
-        super.onDraw(canvas);
-        drawTracking(canvas);
+            trackSrc = pointProcessing.getTrackSrc();
+            trackDst = pointProcessing.getTrackDst();
+            trackSpawn = pointProcessing.getTrackSpawn();
+
+            super.onDraw(canvas);
+            drawTracking(canvas);
+        }
     }
 
     protected void drawTracking(Canvas canvas) {
@@ -162,5 +178,13 @@ public class LocalVideoView extends VideoView{
             Point2D_F64 p = trackSpawn.get(i);
             canvas.drawCircle((int)p.x * scaleX,(int)p.y * scaleY,3, paintBlue);
         }
+    }
+
+    private boolean isPlaying() {
+        return isPlaying;
+    }
+
+    private long getCurrentPosition() {
+        return System.currentTimeMillis() - startTime;
     }
 }

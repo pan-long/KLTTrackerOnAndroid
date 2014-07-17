@@ -1,9 +1,7 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.app.Activity;
-import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.MediaController;
 import android.widget.Toast;
@@ -13,7 +11,6 @@ import boofcv.abst.feature.tracker.PointTracker;
 import boofcv.factory.feature.tracker.FactoryPointTracker;
 import boofcv.struct.image.ImageSInt16;
 import boofcv.struct.image.ImageUInt8;
-import georegression.struct.point.Point2D_F64;
 
 /**
  * Created by a0105529 on 7/11/14.
@@ -33,12 +30,12 @@ public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlaye
         videoView = (LocalVideoView) findViewById(R.id.videoView);
         videoView.setVideoSource(videoSource);
         mediaController = new MediaController(this);
-        videoView.setMediaController(mediaController);
+//        videoView.setMediaController(mediaController);
 
-        videoView.setOnErrorListener(this);
+//        videoView.setOnErrorListener(this);
 
         videoView.requestFocus();
-        videoView.start();
+//        videoView.start();
     }
 
     @Override
@@ -56,7 +53,7 @@ public class KLTLocalVideoDisplayActivity extends Activity implements MediaPlaye
 
         videoView.setProcessing(pointProcessing);
 
-        videoView.resume();
+//        videoView.resume();
     }
 
     @Override
