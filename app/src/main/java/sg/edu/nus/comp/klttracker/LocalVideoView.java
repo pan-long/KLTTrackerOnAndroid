@@ -7,21 +7,18 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.media.MediaMetadataRetriever;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import org.ddogleg.struct.FastQueue;
 
 import boofcv.android.ConvertBitmap;
-import boofcv.struct.image.ImageInt8;
 import boofcv.struct.image.ImageUInt8;
 import georegression.struct.point.Point2D_F64;
 
 /**
  * Created by panlong on 16/7/14.
  */
-public class LocalVideoView extends VideoView {
+public class LocalVideoView extends VideoView implements Runnable{
     private PointProcessing pointProcessing;
     private MediaMetadataRetriever mediaMetadataRetriever;
 
@@ -103,7 +100,7 @@ public class LocalVideoView extends VideoView {
     int number = 0;
     @Override
     public void onDraw(Canvas canvas) {
-        System.out.println(number + ": " + System.currentTimeMillis());
+//        System.out.println(number + ": " + System.currentTimeMillis());
         int currentPosition = getCurrentPosition();
         frameBitmap = mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000);
 
@@ -112,11 +109,10 @@ public class LocalVideoView extends VideoView {
         ImageUInt8 gray = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
 
         ConvertBitmap.bitmapToGray(scaledFrameBitmap, gray, storage);
-        System.out.println(number + ": " + System.currentTimeMillis());
-        System.out.println(number + ": " + System.currentTimeMillis());
+//        System.out.println(number + ": " + System.currentTimeMillis());
 
         pointProcessing.process(gray);
-        System.out.println(number + ": " + System.currentTimeMillis());
+//        System.out.println(number + ": " + System.currentTimeMillis());
 
         trackSrc = pointProcessing.getTrackSrc();
         trackDst = pointProcessing.getTrackDst();
