@@ -1,6 +1,7 @@
 package sg.edu.nus.comp.klttracker;
 
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import boofcv.abst.feature.detect.interest.ConfigGeneralDetector;
 import boofcv.abst.feature.tracker.PointTracker;
@@ -16,6 +17,7 @@ public class KLTDisplayActivity extends PointTrackerDisplayActivity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
     @Override
@@ -27,7 +29,7 @@ public class KLTDisplayActivity extends PointTrackerDisplayActivity{
         config.radius = 3;
 
         PointTracker<ImageUInt8> tracker =
-                FactoryPointTracker.klt(new int[]{2,4},config,3,ImageUInt8.class, ImageSInt16.class);
+                FactoryPointTracker.klt(new int[]{1,2,4},config,3,ImageUInt8.class, ImageSInt16.class);
 
         setProcessing(new PointProcessing(tracker));
     }
