@@ -11,8 +11,6 @@ import android.widget.VideoView;
 
 import org.ddogleg.struct.FastQueue;
 
-import java.util.concurrent.CountDownLatch;
-
 import boofcv.android.ConvertBitmap;
 import boofcv.struct.image.ImageUInt8;
 import georegression.struct.point.Point2D_F64;
@@ -20,7 +18,7 @@ import georegression.struct.point.Point2D_F64;
 /**
  * Created by panlong on 16/7/14.
  */
-public class LocalVideoView extends VideoView implements Runnable{
+public class LocalVideoView extends VideoView{
     private PointProcessing pointProcessing;
     private MediaMetadataRetriever mediaMetadataRetriever;
 
@@ -43,7 +41,7 @@ public class LocalVideoView extends VideoView implements Runnable{
     ImageUInt8 image;
     ImageUInt8 image2;
 
-    CountDownLatch latch = new CountDownLatch(0);
+    private Object lockConvert = new Object();
 
     public LocalVideoView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -61,11 +59,10 @@ public class LocalVideoView extends VideoView implements Runnable{
         image = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
         image2 = new ImageUInt8(VIDEO_WIDTH, VIDEO_HEIGHT);
 
-        Thread thread = new Thread() {
+        Thread threadConvert = new Thread() {
             @Override
             public void run() {
                 while (true) {
-                    System.out.println("Converting");
                     if (isPlaying()) {
                         int currentPosition = getCurrentPosition();
                         Bitmap scaledFrameBitmap = Bitmap.createScaledBitmap(mediaMetadataRetriever.getFrameAtTime(currentPosition * 1000),
@@ -73,14 +70,11 @@ public class LocalVideoView extends VideoView implements Runnable{
                         byte[] storage = null;
                         storage = ConvertBitmap.declareStorage(scaledFrameBitmap, storage);
 
-                        try {
-                            latch.await();
+                        synchronized (lockConvert) {
                             ConvertBitmap.bitmapToGray(scaledFrameBitmap, image, storage);
-                            latch.countDown();
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
                         }
 
+                        scaledFrameBitmap.recycle();
                     } else {
                         try {
                             sleep(10);
@@ -91,9 +85,35 @@ public class LocalVideoView extends VideoView implements Runnable{
                 }
             }
         };
-        thread.start();
 
-        start();
+        Thread threadProcessing = new Thread() {
+            @Override
+            public void run() {
+                while (true) {
+                    if (isPlaying()) {
+                        System.out.println(System.currentTimeMillis());
+                        synchronized (lockConvert) {
+                            ImageUInt8 tmp = image;
+                            image = image2;
+                            image2 = tmp;
+                        }
+                        pointProcessing.process(image2);
+                        LocalVideoView.this.postInvalidate();
+                        System.out.println(System.currentTimeMillis());
+                        System.out.println(" ");
+                    } else {
+                        try {
+                            sleep(10);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        };
+
+        threadConvert.start();
+        threadProcessing.start();
     }
 
     @Override
@@ -141,33 +161,6 @@ public class LocalVideoView extends VideoView implements Runnable{
         for( int i = 0; i < trackSpawn.size(); i++ ) {
             Point2D_F64 p = trackSpawn.get(i);
             canvas.drawCircle((int)p.x * scaleX,(int)p.y * scaleY,3, paintBlue);
-        }
-    }
-
-    @Override
-    public void run() {
-        while (true) {
-            System.out.println("Processing");
-            if (isPlaying()) {
-                try {
-                    latch.await();
-                    ImageUInt8 tmp = image;
-                    image = image2;
-                    image2 = tmp;
-                    latch.countDown();
-
-                    pointProcessing.process(image2);
-                    postInvalidate();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                try {
-                    Thread.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }
